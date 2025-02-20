@@ -11,7 +11,23 @@
   --bulma-success-s: 29%;
   --bulma-success-l: 60%;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.button.is-medium.is-rounded {
+  white-space: normal;
+  word-break: break-word; 
+  padding: 1rem 1.5rem; 
+  font-size: 1.25rem;
+}
 
+@media screen and (max-width: 768px) {
+  .button.is-medium.is-rounded {
+    font-size: 1rem;
+    padding: 0.75rem 1rem; 
+    width: 100%; 
+  }
+}
 
 .card {
     transition:transform 0.3s ease-in-out;
@@ -45,6 +61,7 @@
 
 html{
   scroll-behavior:smooth;
+  scroll-padding-top: 100px; 
 }
 
 #seccionprincipal{
@@ -92,11 +109,11 @@ iframe{
   display: inline-block;
   margin-right: 10px;
   font-size: 20px;
-  color: #333; /* Color de los iconos */
+  color: #333;
   transition: color 0.3s;
 }
 .social-links a:hover {
-  color: #007bff; /* Color al pasar el ratón */
+  color: #007bff; 
 }
 #sebusca{
   border-radius: 12px; 
