@@ -1,6 +1,4 @@
-#seccionprincipal{
-    background-image: url("Imagenes/FondoTitulo.jpg");
-}
+
 :root {
   --bulma-link-h: 187deg;
   --bulma-info-h: 209deg;
@@ -50,8 +48,9 @@ html{
 }
 
 #seccionprincipal{
-  background-image: url(Imagenes/fondoseccionprincipal.jpg);
+  background-image: url(Imagenes/FondoTitulo.jpg);
   background-position-y:center;
+  background-size:cover;
 }
 #titulo{
   background-color:rgba(255,255,255,0.8);
@@ -110,4 +109,15 @@ iframe{
 .hero-body{
   width:70%;
   margin:auto;
+}
+#mapa{
+  border-radius: 10%;
+  max-width: 400px;
+  max-height: 250px;
+}
+#fondotxtprincipal{
+  opacity: 95%;
+}
+.navbar-link::after {
+  border-color: #333 !important; 
 }
