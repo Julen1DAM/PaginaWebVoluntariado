@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario De Registro</title> 
+    <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./bulma.css">
+    <link rel="stylesheet" type="text/css" href="./estiloform.css">
+</head>
+<body>
+<form action="procesar.php" method="POST">
+<table class="tablaForm">
+  <tr>
+    <td>
+        <div class="field">
+          <label class="label">Nombre Completo</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Nombre Apellidos" required>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-success" type="text" placeholder="UsuarioMisterioso23" required>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+          <p class="help is-success"></p>
+        </div>
+        
+        <!-- horas semanales -->
+        <div class="field">
+          <label class="label">Correo</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="usuario@gmail.com" required>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+            </span>
+          </div>
+        </div>
+        <table class="tablaContra">
+          <tr>
+            <td>
+              <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="password" placeholder="******" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>              
+                </div>
+            </td>
+            <td>
+              <div class="field">
+                <label class="label">Confirmar Contraseña</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="password" placeholder="******" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+            </td>
+          </tr>
+        </table>
+
+
+        <div class="select is-rounded">
+          <select required>
+            <option value="" disabled selected>Selecciona tu curso</option>
+            <option value="1ºTLA">1º TLA</option>
+            <option value="1ºTLB">1º TLB</option>
+            <option value="1ºCI">1º CI</option>
+            <option value="1ºDAM">1º DAM</option>
+            <option value="1ºGVEC">1º GVEC</option>
+            <option value="1ºASIR">1º ASIR</option>
+            <option value="1ºAF">1º AF</option>
+            <option value="2ºTLA">2º TLA</option>
+            <option value="2ºTLB">2º TLB</option>
+            <option value="2ºCI">2º CI</option>
+            <option value="2ºDAM">2º DAM</option>
+            <option value="2ºGVEC">2º GVEC</option>
+            <option value="2ºASIR">2º ASIR</option>
+            <option value="2ºAF">2º AF</option>    
+          </select>
+        </div>
+        <label class="label">Elige tu foto de perfil</label>
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume" />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label"> Selecciona una imagen </span>
+            </span>
+          </label>
+        </div>   
+      </td>
+    <td class="columnaMedia">
+      <div class ="radioSino">
+        <div class="control">
+          <p class="label">¿Has participado en algún voluntariado antes?</p>
+          <div class="si">
+            <label class="radio">
+              <input class="sino" type="radio" name="answer" />
+              Sí
+            </label>
+          </div>
+          <label class="radio">
+            <input class="sino" type="radio" name="answer" />
+            No
+          </label>
+        </div>
+     </div>
+    <div class="field">
+      <label class="label">¿En que asociación/es has realizado voluntariado?</label>
+      <div class="control">
+        <textarea class="textarea is-small" placeholder="Cuéntanos..."></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">¿Qué acciones realizabas?</label>
+      <div class="control">
+        <textarea class="textarea is-small" placeholder="Cuéntanos..."></textarea>
+      </div>
+    </div>
+
+
+    <table class="tablaTipos">
+    <tr><td class="tituloTipos">
+      <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
+      </td>
+    </tr>
+      <tr>
+         <td>
+        <div class="field">
+          <div class="checkboxes">
+            <label class="checkbox">
+              <input type="checkbox" />
+               Social
+            </label>
+          
+            <label class="checkbox">
+              <input type="checkbox" />
+               Ambiental
+            </label>
+          
+            <label class="checkbox">
+              <input type="checkbox" />
+               Educativo
+            </label>
+          
+            <label class="checkbox">
+              <input type="checkbox" />
+               Cultural
+            </label>
+          </div>
+        </div>    
+      </td>
+      <td>
+      <div class="field">
+        <div id="columna2" class="checkboxes">
+          <label class="checkbox">
+            <input type="checkbox" />
+            Deportivo
+          </label>
+        
+          <label class="checkbox">
+            <input type="checkbox"/>
+            Salud
+          </label>
+        
+          <label class="checkbox">
+            <input type="checkbox"/>
+            Digital
+          </label>
+        </div>
+      </div>
+      </td>
+      </tr>  
+  </table>
+</td>
+<td>
+  <label>
+    <label class="label">¿Cúantas horas semanales podrías emplear?</label>
+    <input type="radio" name="opcion" value="1-3"> 1-3
+</label><br>
+<label>
+    <input type="radio" name="opcion" value="3-5"> 3-5
+</label><br>
+<label>
+    <input type="radio" name="opcion" value="5-10"> 5-10
+</label><br>
+<label>
+    <input type="radio" name="opcion" value="otro" id="otroRadio"> Otro:
+    <input type="text" id="otroTexto" placeholder="Especifica">
+</label>
+<table>
+  <tr><td class="tituloDias">
+    <label class="label">Disponibilidad</label>
+    </td>
+  </tr>
+    <tr>
+       <td>
+      <div class="field">
+        <div class="checkboxes">
+          <label class="checkbox">
+            <input type="checkbox" />
+             Lunes
+          </label>
+        
+          <label class="checkbox">
+            <input type="checkbox" />
+             Martes
+          </label>
+        
+          <label class="checkbox">
+            <input type="checkbox" />
+             Miércoles
+          </label>
+        
+          <label class="checkbox">
+            <input type="checkbox" />
+             Jueves
+          </label>
+        </div>
+      </div>    
+    </td>
+    <td>
+    <div class="field">
+      <div id="columna2" class="checkboxes">
+        <label class="checkbox">
+          <input type="checkbox" />
+          Viernes
+        </label>
+      
+        <label class="checkbox">
+          <input type="checkbox"/>
+          Sábado
+        </label>
+      
+        <label class="checkbox">
+          <input type="checkbox"/>
+          Domingo
+        </label>
+      </div>
+    </div>
+    </td>
+    </tr>  
+</table>
+  <div class="field">
+    <label class="label">Si tienes algo que añadir, ponlo aquí: </label>
+    <div class="control">
+      <textarea class="textarea is-small" placeholder="Cuéntanos..."></textarea>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" required>
+        Acepto los <a href="#">términos y condiciones</a>
+      </label>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+        <button class="button is-link" type="submit">Enviar</button>
+    </div>
+    <div class="control">
+        <button class="button is-danger" type="reset">Borrar</button>
+    </div>
+</div>
+</div>
+</div>
+
+
+</td>
+</tr>
+</table>
+</form>
+    
+
+</body>
+</html>

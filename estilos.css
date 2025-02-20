@@ -1,0 +1,113 @@
+#seccionprincipal{
+    background-image: url("Imagenes/FondoTitulo.jpg");
+}
+:root {
+  --bulma-link-h: 187deg;
+  --bulma-info-h: 209deg;
+  --bulma-warning-h: 73deg;
+  --bulma-danger-h: 360deg;
+  --bulma-danger-l: 50%;
+  --bulma-primary-h: 206deg;
+  --bulma-primary-l: 59%;
+  --bulma-success-h: 107deg;
+  --bulma-success-s: 29%;
+  --bulma-success-l: 60%;
+}
+
+
+.card {
+    transition:transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.02);
+}
+.columns.is-scrollable {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .columns.is-scrollable .column {
+    flex: 0 0 auto;
+  }
+  .card-content p {
+    white-space: normal;
+  }
+#visFormCheckboxVoluntarios,
+#visFormCheckboxEventos {
+  display: none;
+}
+.filtroForm,
+.filtroFormEventos {
+  display: none;
+}
+#visFormCheckboxVoluntarios:checked ~ .filtroForm,
+#visFormCheckboxEventos:checked ~ .filtroFormEventos {
+  display: block;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+#seccionprincipal{
+  background-image: url(Imagenes/fondoseccionprincipal.jpg);
+  background-position-y:center;
+}
+#titulo{
+  background-color:rgba(255,255,255,0.8);
+  border-radius: 25px;
+}
+
+#titulo h3{
+  color:white;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#modal-toggle:checked + .modal {
+  display: flex;
+}
+iframe{
+  width:400px ;
+  height:300px ;
+  border:0;
+}
+/* Centrar contenido del modal */
+.modal-card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal-toggle{
+  display: none;
+}
+.modal-card{
+  width:30%;
+}
+.social-links {
+  margin-top: 10px;
+}
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #333; /* Color de los iconos */
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #007bff; /* Color al pasar el ratón */
+}
+#sebusca{
+  border-radius: 12px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.labelFooterIS{
+  margin:auto;
+  
+}
+.hero-body{
+  width:70%;
+  margin:auto;
+}

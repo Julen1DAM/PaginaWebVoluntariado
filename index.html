@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voluntariado Cuatrovientos</title> 
+  <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="./bulma.css">
+  <link rel="stylesheet" type="text/css" href="./estilos.css">
+</head>
+<body>
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://cuatrovientos.org" target="_blank">
+    <img class="imgNav" src="./Imagenes/LOGOVoluntariado.png">                  
+    </a> 
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>      
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+        <a href="#inicio" class="navbar-item">
+          Inicio
+        </a>
+
+        
+        
+        <a href="#quienesSomos" class="navbar-item">
+          ¿Quiénes somos?
+          
+        </a>
+  
+        
+        <a href="#queHacemos" class="navbar-item">
+          ¿Qué hacemos?
+        </a>
+    </div>
+        <div class="navbar-end">
+        <div class="navbar-item">
+        <label for="modal-toggle" class="button is-primary ">
+            <span class="icon-text">
+            <span class="icon">
+                <i class="fas fa-user"></i>
+              </span>
+          <span>Iniciar Sesión</span>
+        </span></label>
+        </div>
+        </div>
+        <!-- Checkbox oculto para controlar la ventana -->
+        <input type="checkbox" id="modal-toggle">
+    
+        <!-- Modal de Bulma -->
+        <div class="modal" id="ventanaIS">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Inicia Sesión</p>
+                    <label for="modal-toggle" class="delete" aria-label="close"></label>
+                </header>
+                <section class="modal-card-body">
+            <div class="columns">
+        
+            <form>
+                <div class="field">
+                    <label class="label">Nombre De Usuario</label>
+                    <div class="control has-icons-left has-icons-right">
+                    <input class="input is-success" type="text" placeholder="Ej: JuanGarcía21">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Contraseña</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-success" type="password" id="password" name="password" placeholder="******" required="">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    </div>
+                </div>               
+                <div class="field is-grouped">
+                    <div class="control">
+                    <button class="button is-link">Entrar</button>
+                    </div>
+                    <div class="control">
+                    <button class="button is-danger">Borrar</button>
+                    </div>
+                </div>
+            </form>
+
+            </div>
+                </section>
+                <footer class="modal-card-foot is-primary">
+                    <label for="modal-toggle" class="labelFooterIS is-primary">Únete al cambio</label>
+                </footer>
+            </div>
+        </div>
+    
+
+    <!-- Ventana Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <p>Este es un modal sin JavaScript 😃</p>
+            <label for="modal-toggle" class="close-btn">Cerrar</label>
+        </div>
+    </div>
+        </a>
+        
+      </div>
+  
+    </div>
+</nav>
+<section class="hero is-fullheight has-background" id="seccionprincipal">
+  
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-full has-text-centered">
+            <div class="box has-background-white p-6">
+              <h1 class="title has-text-primary">Voluntariado Cuatrovientos</h1>
+              <h2 class="subtitle has-text-grey-dark">
+                ¡Haz la diferencia! Participa en iniciativas que impactan positivamente a nuestra comunidad.<br>
+                Desarrolla nuevas habilidades, haz amigos y contribuye al bien común.
+              </h2>
+              <a href="form.html" class="button is-primary is-medium is-rounded mt-4" target="_blank">
+                Apúntate ahora y sé parte del cambio.
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+<section>
+  <div class="container">
+      <div class="columns">
+          <div class="column is-one-quarter mt-6 mr-3">
+              <figure class="image is-2by3">
+                  <img id="sebusca" class="" src="./Imagenes/cartelsebuscan.png" alt="Voluntariado Cuatrovientos">
+              </figure>
+          </div>
+          <div class="column is-three-quarters mt-4">
+            <br id="quienesSomos"><br><br>
+              <h2 class="title">¿Quienes somos?</h2>
+              <p>En Cuatrovientos, creemos que el cambio comienza con la cooperación ciudadana y el compromiso de marcar una diferencia en nuestras comunidades. Somos una organización dedicada a crear oportunidades para el bienestar comunitario a través del voluntariado, uniendo a personas apasionadas por construir un futuro más justo y solidario.<br>
+                  
+                  Trabajamos mano a mano con sectores vulnerables, ofreciendo apoyo integral que abarca desde necesidades básicas hasta el desarrollo de habilidades que empoderan a las personas y les brindan herramientas para transformar sus vidas. Nuestra misión es fomentar competencias clave que impulsen el crecimiento personal y colectivo, creando un impacto positivo y sostenible.<br>
+                  
+                  En cada uno de nuestros proyectos, promovemos el desarrollo de habilidades técnicas, desde talleres educativos hasta capacitaciones prácticas, con el objetivo de abrir puertas a nuevas oportunidades y construir bases sólidas para un desarrollo continuo.<br>
+                  
+                  Somos una comunidad de voluntarios comprometidos con el bienestar y el progreso, porque sabemos que juntos podemos lograr un cambio significativo. Te invitamos a unirte a nuestro esfuerzo por construir un mundo más inclusivo, solidario y lleno de oportunidades para todos.<br>
+                  
+                  ¡Se parte del cambio, se parte del voluntariado Cuatrovientos!</p>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="section">
+  <div id="queHacemos" class="container">
+      <br><br>
+      <h1 class="title has-text-centered">¿Qué hacemos?</h1>
+      <div class="content has-text-centered">
+          <p class="is-size-5"></p>
+          En el voluntariado de nuestro instituto, llevamos a cabo actividades que buscan mejorar nuestra comunidad 
+          y contribuir a los Objetivos de Desarrollo Sostenible (ODS). Descubre cómo trabajamos para un mundo mejor.
+      </div>
+
+      <div class="columns is-mobile is-scrollable">
+          <div class="column is-one-third">
+              <div class="card is-flex is-flex-direction-column">
+                  <div class="card-image">
+                      <figure class="image is-4by3">
+                          <img src="Imagenes/SOLERATallerDigitalizacion.png" alt="Taller de digitalización">
+                      </figure>
+                  </div>
+                  <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+                      <div style="flex-grow: 1;">
+                          <p class="title">Taller de digitalización</p>
+                          <p class="subtitle">Centro de día SOLERA</p>
+                      </div>
+                      <div>
+                          <p><strong>Fecha inicio: 21 de octubre de 2024</strong></p>
+                          <p>Taller para enseñar nuevos recursos digitales a personas mayores.</p>
+                          <div class="tags">
+                              <span class="tag is-success">ODS 4: Educación de calidad</span>
+                              <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="column is-one-third">
+              <div class="card is-flex is-flex-direction-column">
+                  <div class="card-image">
+                      <figure class="image is-4by3">
+                          <img src="Imagenes/AMAVIRActividadesLudicas.jpg" alt="Actividades lúdicas">
+                      </figure></strong>
+                  </div>
+                  <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+                      <div style="flex-grow: 1;">
+                          <p class="title">Actividades lúdicas</p>
+                          <p class="subtitle">Residencia Amavir-oblatas</p>
+                      </div>
+                      <div>
+                          <p><strong>Fecha inicio: 6 de noviembre de 2024</strong></p>
+                          <p>Para promover la actividad física y bienestar de las personas mayores</p>
+                          <div class="tags">
+                              <span class="tag is-info">ODS 3: Salud y bienestar</span>
+                              <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="column is-one-third">
+              <div class="card is-flex is-flex-direction-column">
+                  <div class="card-image">
+                      <figure class="image is-4by3">
+                          <img src="Imagenes/UNZUTXIKIAlimentos.jpg" alt="Distribución de alimentos y productos de higiene">
+                      </figure>
+                  </div>
+                  <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+                      <div style="flex-grow: 1;">
+                          <p class="title">Distribución de alimentos y productos de higiene</p>
+                          <p class="subtitle">Unzutxiki</p>
+                      </div>
+                      <div>
+                          <p><strong>Fecha inicio: 28 de octubre de 2024</strong></p>
+                          <p>Se recogen alimentos y productos de higiene para familias necesitadas de la comunidad.</p>
+                          <div class="tags">
+                              <span class="tag is-warning">ODS 2: Hambre cero</span>
+                              <span class="tag is-danger">ODS 12: Objetivo de Desarrollo</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="column is-one-third">
+              <div class="card is-flex is-flex-direction-column">
+                  <div class="card-image">
+                      <figure class="image is-4by3">
+                          <img src="Imagenes/ANFASTallerDigitalizacion.png" alt="Taller competencias digitales">
+                      </figure>
+                  </div>
+                  <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+                      <div style="flex-grow: 1;">
+                          <p class="title">Taller competencias digitales</p>
+                          <p class="subtitle">Asociación ANFAS sangüesa</p>
+                      </div>
+                      <div>
+                          <p><strong>Fecha inicio: no info</strong></p>
+                          <p>Los participantes aprenden herramientas digitales básicas gracias a los cibervoluntarios.</p>
+                          <div class="tags">
+                              <span class="tag is-success">ODS 4: Educación de calidad</span>
+                              <span class="tag is-primary">ODS 10: Reducción de las desigualdades</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="column is-one-third">
+              <div class="card is-flex is-flex-direction-column">
+                  <div class="card-image">
+                      <figure class="image is-4by3">
+                          <img src="Imagenes/AECCCharlaContraCancer.png" alt="Charla de prevención Cáncer">
+                      </figure>
+                  </div>
+                  <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+                      <div style="flex-grow: 1;">
+                          <p class="title">Charla de prevención Cáncer</p>
+                          <p class="subtitle">Asociación Española Contra el Cáncer (AECC)</p>
+                      </div>
+                      <div>
+                          <p><strong>Fecha inicio: no info</strong></p>
+                          <p>Charla para conocer el trabajo de la AECC y fomentar la prevención para el alumnado de Cuatrovientos.</p>
+                          <div class="tags">
+                              <span class="tag is-info">ODS 3: Salud y bienestar</span>
+                              <span class="tag is-info">ODS 4: Educación de calidad</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Nº de voluntariados realizados</p>
+        <p class="title">98</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Nº Voluntarios</p>
+        <p class="title">23</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Voluntariados programados</p>
+        <p class="title">4</p>
+      </div>
+    </div>
+  </nav>
+<footer class="footer has-background-light">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-three-fifths-desktop">
+                <h2 class="title is-4">Contacto</h2>
+                <p><strong>Correo:</strong> <a href="mailto:iryna_pavlenko@cuatrovientos.org">iryna_pavlenko@cuatrovientos.org</a></p>
+                <p><strong>Número de teléfono:</strong> 948 12 41 29</p>
+                <p><strong>Ubicación:</strong> Av. de San Jorge, 6, 31012 Pamplona, Navarra</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/cuatrovientosfp" target="_blank" aria-label="Facebook" class="icon is-medium mr-3">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/cuatrovientosfp" target="_blank" aria-label="Twitter" class="icon is-medium mr-3">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/cuatrovientosfp" target="_blank" aria-label="Instagram" class="icon is-medium mr-3">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/school/cuatrovientosfp/" target="_blank" aria-label="LinkedIn" class="icon is-medium">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="column is-two-fifths">
+                    <iframe class="has-ratio" width="200" height="200" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.2995058267966!2d-1.66242902438858!3d42.82428680564762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5092855cefdac7%3A0xab7c62765f5209e2!2sCuatrovientos%20Centro%20Integrado!5e0!3m2!1ses!2ses!4v1739182180408!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

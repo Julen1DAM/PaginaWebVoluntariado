@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel Administrador - Voluntariado</title>
+  <link rel="stylesheet" href="/bulma.css">
+  <link rel="stylesheet" href="/estilos.css">
+  <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <img src="./Imagenes/LOGOVoluntariado.png" alt="Logo" style="max-height: 50px;">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#voluntarios">Voluntarios</a>
+        <a class="navbar-item" href="#eventos">Eventos</a>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span>Coordinador</span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="#">Perfil</a>
+            <a class="navbar-item" href="#">Configuración</a>
+            <hr class="navbar-divider">
+            <a class="navbar-item has-text-danger" href="#">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-end">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link">
+        <span class="icon">
+          <i class="fas fa-user"></i>
+        </span>
+        <span>Coordinador</span>
+      </a>
+      <div class="navbar-dropdown is-right">
+        <a class="navbar-item" href="#">Perfil</a>
+        <a class="navbar-item" href="#">Configuración</a>
+        <hr class="navbar-divider">
+        <a class="navbar-item has-text-danger" href="#">Cerrar sesión</a>
+      </div>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Panel Administrador</h1>
+      <h2 class="subtitle has-text-centered">Gestión de Voluntarios y Eventos</h2>
+      <div class="box">
+        <h3 class="title is-4">Voluntarios</h3>
+      
+        <!-- Checkbox oculto -->
+        <input type="checkbox" id="visFormCheckboxVoluntarios" class="is-hidden">
+      
+        <!-- Botón para mostrar/ocultar filtros -->
+        <label for="visFormCheckboxVoluntarios" class="button is-info is-small mb-4">
+          <span class="icon">
+            <i class="fas fa-filter"></i>
+          </span>
+          <span>Mostrar/Ocultar Filtros</span>
+        </label>
+      
+        <!-- Formulario de filtros (debe estar como hermano del checkbox) -->
+        <form action="filtrar_voluntarios.php" method="GET" class="box filtroForm">
+          <h4 class="title is-5">Filtrado de Voluntarios</h4>
+          
+          <div class="columns is-multiline is-vcentered">
+            <div class="column is-12">
+              <div class="field">
+                <label class="label">Buscar por Nombre</label>
+                <div class="control has-icons-left">
+                  <input class="input is-small" type="text" name="nombre" placeholder="Ingresa el nombre del voluntario">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Filtros de Disponibilidad y Horas -->
+            <div class="column is-6">
+              <div class="field">
+                <label class="label">Disponibilidad por Días</label>
+                <div class="control">
+                  <div class="select is-multiple is-small is-fullwidth">
+                    <select name="disponibilidad[]" multiple>
+                      <option value="Lunes">Lunes</option>
+                      <option value="Martes">Martes</option>
+                      <option value="Miércoles">Miércoles</option>
+                      <option value="Jueves">Jueves</option>
+                      <option value="Viernes">Viernes</option>
+                      <option value="Sábado">Sábado</option>
+                      <option value="Domingo">Domingo</option>
+                      <option value="Todo el día">Todos los días</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="column is-6">
+              <div class="field">
+                <label class="label">Mínimo de Horas Disponibles</label>
+                <div class="control">
+                  <input class="input is-small" type="number" name="horas_min" min="1" placeholder="Ej. 2">
+                </div>
+              </div>
+            </div>
+        
+            <!-- Filtros de Voluntariado y Curso -->
+            <div class="column is-6">
+              <div class="field">
+                <label class="label">Filtrar por Voluntariado Ideal</label>
+                <div class="control">
+                  <div class="select is-small is-fullwidth">
+                    <select name="voluntariado">
+                      <option value="">-- Selecciona un tipo --</option>
+                      <option value="Social">Voluntariado Social</option>
+                      <option value="Ambiental">Voluntariado Ambiental</option>
+                      <option value="Educativo">Voluntariado Educativo</option>
+                      <option value="Cultural">Voluntariado Cultural</option>
+                      <option value="Deportivo">Voluntariado Deportivo</option>
+                      <option value="Salud">Voluntariado en Salud</option>
+                      <option value="Digital">Voluntariado Digital</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="column is-6">
+              <div class="field">
+                <label class="label">Filtrar por Curso</label>
+                <div class="control">
+                  <div class="select is-small is-fullwidth">
+                    <select name="curso">
+                      <option value="">-- Selecciona un curso --</option>
+                      <option value="1º Grado Superior">1º DAM</option>
+                      <option value="2º Grado Superior">2º DAM</option>
+                      <option value="2º Grado Superior">1º AC</option>
+                      <option value="2º Grado Superior">2º AC</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Botón de Filtrar -->
+            <div class="column is-12">
+              <div class="field">
+                <div class="control">
+                  <button type="submit" class="button is-primary is-small is-fullwidth">Filtrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <!-- Tabla de Voluntarios -->
+        <div class="box">
+          <table class="table is-fullwidth is-hoverable is-striped">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Descripción</th>
+                <th>Voluntariados</th>
+                <th>Disponibilidad</th>
+                <th>Horas Disponibles</th>
+                <th>Curso</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <figure class="image is-64x64">
+                    <img src="foto_voluntario.jpg" alt="Foto de Juan Pérez">
+                  </figure>
+                </td>
+                <td>Juan Pérez</td>
+                <td>juan.perez@example.com</td>
+                <td>Voluntario comprometido y con experiencia en gestión comunitaria.</td>
+                <td>Social, Ambiental</td>
+                <td>Lunes, Miércoles</td>
+                <td>5 horas</td>
+                <td>1º DAM</td>
+                <td>
+                  <a class="button is-small is-info" href="editar_voluntario.php?id=1">Editar</a>
+                  <a class="button is-small is-danger" href="eliminar_voluntario.php?id=1">Eliminar</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <figure class="image is-64x64">
+                    <img src="foto_voluntario2.jpg" alt="Foto de María Gómez">
+                  </figure>
+                </td>
+                <td>María Gómez</td>
+                <td>maria.gomez@example.com</td>
+                <td>Especialista en apoyo a la educación y mentoría.</td>
+                <td>Educativo, Digital</td>
+                <td>Martes, Jueves</td>
+                <td>3 horas</td>
+                <td>2º AC</td>
+                <td>
+                  <a class="button is-small is-info" href="editar_voluntario.php?id=2">Editar</a>
+                  <a class="button is-small is-danger" href="eliminar_voluntario.php?id=2">Eliminar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="container">
+        <div class="box">
+          <h3 class="title is-4">Eventos</h3>
+        
+          <!-- Checkbox oculto -->
+          <input type="checkbox" id="visFormCheckboxEventos" class="is-hidden">
+        
+          <!-- Botón para mostrar/ocultar filtros -->
+          <label for="visFormCheckboxEventos" class="button is-info is-small mb-4">
+            <span class="icon">
+              <i class="fas fa-filter"></i>
+            </span>
+            <span>Mostrar/Ocultar Filtros</span>
+          </label>
+        
+          <!-- Formulario de filtros (hermano del checkbox) -->
+          <form action="filtrar_eventos.php" method="GET" class="box filtroFormEventos">
+            <h4 class="title is-5">Filtrar Eventos</h4>
+            <div class="columns is-multiline">
+              <!-- Filtro por Fechas -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Fechas</label>
+                  <div class="control">
+                    <input class="input is-small" type="date" name="fecha" placeholder="Selecciona una fecha">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Filtro por Tipo de Voluntariado -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Tipo de Voluntariado</label>
+                  <div class="control">
+                    <div class="select is-small is-fullwidth">
+                      <select name="tipo_voluntariado">
+                        <option value="">-- Selecciona un tipo --</option>
+                        <option value="Social">Voluntariado Social</option>
+                        <option value="Ambiental">Voluntariado Ambiental</option>
+                        <option value="Educativo">Voluntariado Educativo</option>
+                        <option value="Cultural">Voluntariado Cultural</option>
+                        <option value="Deportivo">Voluntariado Deportivo</option>
+                        <option value="Salud">Voluntariado en Salud</option>
+                        <option value="Digital">Voluntariado Digital</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Filtro por Empresa -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Empresa</label>
+                  <div class="control">
+                    <input class="input is-small" type="text" name="empresa" placeholder="Nombre de la empresa">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Filtro por Lugar -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Lugar</label>
+                  <div class="control">
+                    <input class="input is-small" type="text" name="lugar" placeholder="Lugar del evento">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Botón de Filtrar -->
+              <div class="column is-12">
+                <div class="field">
+                  <div class="control">
+                    <button type="submit" class="button is-primary is-small is-fullwidth">Filtrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    
+          <!-- Formulario para añadir/editar eventos -->
+          <form action="guardar_evento.php" method="POST" class="box">
+            <h4 class="title is-5">Añadir / Editar Evento</h4>
+            <div class="columns is-multiline">
+              <!-- Foto -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Foto URL</label>
+                  <div class="control">
+                    <input class="input" type="text" name="foto" placeholder="URL de la foto">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Fechas -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Fechas</label>
+                  <div class="control">
+                    <input class="input" type="date" name="fecha" multiple>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Empresa -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Empresa</label>
+                  <div class="control">
+                    <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Lugar -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Lugar</label>
+                  <div class="control">
+                    <input class="input" type="text" name="lugar" placeholder="Lugar del evento">
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Descripción -->
+              <div class="column is-12">
+                <div class="field">
+                  <label class="label">Descripción</label>
+                  <div class="control">
+                    <textarea class="textarea" name="descripcion" placeholder="Descripción del evento"></textarea>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Tipo de Voluntariado -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">Tipo de Voluntariado</label>
+                  <div class="control">
+                    <div class="select is-fullwidth">
+                      <select name="tipo_voluntariado">
+                        <option value="">-- Selecciona un tipo --</option>
+                        <option value="Social">Voluntariado Social</option>
+                        <option value="Ambiental">Voluntariado Ambiental</option>
+                        <option value="Educativo">Voluntariado Educativo</option>
+                        <option value="Cultural">Voluntariado Cultural</option>
+                        <option value="Deportivo">Voluntariado Deportivo</option>
+                        <option value="Salud">Voluntariado en Salud</option>
+                        <option value="Digital">Voluntariado Digital</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- ODS -->
+              <div class="column is-6">
+                <div class="field">
+                  <label class="label">ODS</label>
+                  <div class="control">
+                    <div class="select is-multiple is-fullwidth">
+                      <select name="ods[]" multiple size="4">
+                        <option value="ODS 1">ODS 1: Fin de la pobreza</option>
+                        <option value="ODS 2">ODS 2: Hambre cero</option>
+                        <option value="ODS 3">ODS 3: Salud y bienestar</option>
+                        <option value="ODS 4">ODS 4: Educación de calidad</option>
+                        <option value="ODS 5">ODS 5: Igualdad de género</option>
+                        <option value="ODS 6">ODS 6: Agua limpia y saneamiento</option>
+                        <option value="ODS 7">ODS 7: Energía asequible y no contaminante</option>
+                        <option value="ODS 8">ODS 8: Trabajo decente y crecimiento económico</option>
+                        <option value="ODS 9">ODS 9: Industria, innovación e infraestructura</option>
+                        <option value="ODS 10">ODS 10: Reducción de las desigualdades</option>
+                        <option value="ODS 11">ODS 11: Ciudades y comunidades sostenibles</option>
+                        <option value="ODS 12">ODS 12: Producción y consumo responsables</option>
+                        <option value="ODS 13">ODS 13: Acción por el clima</option>
+                        <option value="ODS 14">ODS 14: Vida submarina</option>
+                        <option value="ODS 15">ODS 15: Vida de ecosistemas terrestres</option>
+                        <option value="ODS 16">ODS 16: Paz, justicia e instituciones sólidas</option>
+                        <option value="ODS 17">ODS 17: Alianzas para lograr los objetivos</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Botón de Guardar -->
+              <div class="column is-12">
+                <div class="field is-grouped is-grouped-right">
+                  <div class="control">
+                    <button class="button is-success" type="submit">Guardar Evento</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    
+          <!-- Tabla de eventos -->
+          <table class="table is-fullwidth is-hoverable is-striped">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Descripción</th>
+                <th>Fechas</th>
+                <th>Empresa</th>
+                <th>Lugar</th>
+                <th>Tipo de Voluntariado</th>
+                <th>ODS</th>
+                <th>Voluntarios Inscritos</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <figure class="image is-64x64">
+                    <img src="foto_evento.jpg" alt="Foto de Evento">
+                  </figure>
+                </td>
+                <td>Recolección de alimentos</td>
+                <td>2023-10-15, 2023-10-16</td>
+                <td>Supermercado La Esperanza</td>
+                <td>Ciudad de México</td>
+                <td>Social</td>
+                <td>ODS 1, ODS 2</td>
+                <td>
+                  <ul class="inscritos-list">
+                    <li>María Gómez</li>
+                    <li>Carlos López</li>
+                    <li>Ana Ruiz</li>
+                  </ul>
+                </td>
+                <td>
+                  <div class="buttons">
+                    <a class="button is-small is-info" href="editar_evento.php?id=1">Editar</a>
+                    <a class="button is-small is-danger" href="eliminar_evento.php?id=1">Eliminar</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </section>
+</body>
+</html>  
