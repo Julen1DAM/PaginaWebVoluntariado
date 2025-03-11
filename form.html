@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario De Registro</title>
+    <link rel="icon" type="image/png" href="./Imagenes/LOGOVoluntariado.png">
+    <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./bulma.css">
+    <link rel="stylesheet" type="text/css" href="./estiloform.css">
+</head>
+<body>
+    <form id="registroForm" class="container p-4">
+        <div class="columns is-multiline">
+           
+            <div class="column is-full-mobile is-half-tablet">
+                <div class="field">
+                    <label class="label" for="nombre">Nombre Completo</label>
+                    <div class="control">
+                        <input class="input" id="nombre" type="text" placeholder="Nombre Apellidos" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="usuario">Usuario</label>
+                    <div class="control has-icons-left">
+                        <input class="input is-success" id="usuario" type="text" placeholder="UsuarioMisterioso23" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="correo">Correo</label>
+                    <div class="control has-icons-left">
+                        <input class="input" id="correo" type="email" placeholder="usuario@gmail.com" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label" for="contrasena">Contraseña</label>
+                            <div class="control has-icons-left">
+                                <input class="input is-success" id="contrasena" type="password" placeholder="******" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <label class="label" for="confirmarContrasena">Confirmar Contraseña</label>
+                            <div class="control has-icons-left">
+                                <input class="input is-success" id="confirmarContrasena" type="password" placeholder="******" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="curso">Selecciona tu curso</label>
+                    <div class="control">
+                        <div class="select is-rounded">
+                            <select id="curso" required>
+                                <option value="" disabled selected>Selecciona tu curso</option>
+                                <option value="1ºTLA">1º TLA</option>
+                                <option value="1ºTLB">1º TLB</option>
+                                <option value="1ºCI">1º CI</option>
+                                <option value="1ºDAM">1º DAM</option>
+                                <option value="1ºGVEC">1º GVEC</option>
+                                <option value="1ºASIR">1º ASIR</option>
+                                <option value="1ºAF">1º AF</option>
+                                <option value="2ºTLA">2º TLA</option>
+                                <option value="2ºTLB">2º TLB</option>
+                                <option value="2ºCI">2º CI</option>
+                                <option value="2ºDAM">2º DAM</option>
+                                <option value="2ºGVEC">2º GVEC</option>
+                                <option value="2ºASIR">2º ASIR</option>
+                                <option value="2ºAF">2º AF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="fotoPerfil">Elige tu foto de perfil</label>
+                    <div class="file">
+                        <label class="file-label">
+                            <input class="file-input" id="fotoPerfil" type="file" name="resume" accept="image/*">
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">Selecciona una imagen</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-full-mobile is-half-tablet">
+                <div class="field">
+                    <label class="label">¿Has participado en algún voluntariado antes?</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="answer" value="si"> Sí
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer" value="no"> No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="asociacion">¿En qué asociación/es has realizado voluntariado?</label>
+                    <div class="control">
+                        <textarea class="textarea is-small" id="asociacion" placeholder="Cuéntanos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="acciones">¿Qué acciones realizabas?</label>
+                    <div class="control">
+                        <textarea class="textarea is-small" id="acciones" placeholder="Cuéntanos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
+                    <div class="checkboxes">
+                        <label class="checkbox">
+                            <input type="checkbox" value="social"> Social
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="ambiental"> Ambiental
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="educativo"> Educativo
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="cultural"> Cultural
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="deportivo"> Deportivo
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="salud"> Salud
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="digital"> Digital
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="tecnico"> Técnico
+                        </label>
+                    </div>
+                </div>
+            </div>      
+            <div class="column is-full-mobile is-half-tablet">
+                <div class="field">
+                    <label class="label">¿Cuántas horas semanales podrías emplear?</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="horas" value="1-3"> 1-3
+                        </label><br>
+                        <label class="radio">
+                            <input type="radio" name="horas" value="3-5"> 3-5
+                        </label><br>
+                        <label class="radio">
+                            <input type="radio" name="horas" value="5-10"> 5-10
+                        </label><br>
+                        <label class="radio">
+                            <input type="radio" name="horas" value="otro" id="otroRadio"> Otro:
+                        </label>
+                        <input type="text" id="otroTexto" placeholder="Especifica">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Disponibilidad</label>
+                    <div class="checkboxes">
+                        <label class="checkbox">
+                            <input type="checkbox" value="lunes"> Lunes
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="martes"> Martes
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="miercoles"> Miércoles
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="jueves"> Jueves
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="viernes"> Viernes
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="sabado"> Sábado
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="domingo"> Domingo
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="comentarios">Si tienes algo que añadir, ponlo aquí:</label>
+                    <div class="control">
+                        <textarea class="textarea is-small" id="comentarios" placeholder="Cuéntanos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" required> Acepto los <a href="#">términos y condiciones</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link is-fullwidth-mobile" type="submit">Enviar</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-danger is-fullwidth-mobile" type="reset">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
