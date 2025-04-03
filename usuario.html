@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntariado</title>
+    <link rel="stylesheet" type="text/css" href="./estiloUsuario.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Actividades de Voluntariado</h1>
+        <div class="activity">
+            <h3>Limpieza de parques</h3>
+            <p>Ayuda a mantener los parques limpios y seguros.</p>
+            <button onclick="inscribirse('Limpieza de parques')">Inscribirse</button>
+        </div>
+        <div class="activity">
+            <h3>Reparto de alimentos</h3>
+            <p>Colabora en la distribución de comida a personas necesitadas.</p>
+            <button onclick="inscribirse('Reparto de alimentos')">Inscribirse</button>
+        </div>
+        <div class="activity">
+            <h3>Apoyo escolar</h3>
+            <p>Brinda ayuda con tareas y estudios a niños y jóvenes.</p>
+            <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+        </div>
+    </div>
+
+    <script>
+        function inscribirse(actividad) {
+            alert('Te has inscrito en ' + actividad);
+        }
+    </script>
+</body>
+</html>
