@@ -6,14 +6,37 @@
     <title>Formulario De Registro</title>
     <link rel="icon" type="image/png" href="./Imagenes/LOGOVoluntariado.png">
     <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./bulma.css">
-    <link rel="stylesheet" type="text/css" href="./estiloform.css">
+    <link rel="stylesheet" type="text/css" href="./estilos/bulma.css">
+    <link rel="stylesheet" type="text/css" href="./estilos/estiloform.css">
 </head>
 <body>
-    <form id="registroForm" class="container p-4">
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered is-centered">
+                    <div class="column is-narrow">
+                        <figure class="image is-128x128">
+                            <img src="./Imagenes/LOGOVoluntariado.png" alt="Logo Voluntariado">
+                        </figure>
+                    </div>
+                    <div class="column is-narrow">
+                        <h1 class="title">
+                            Formulario de Registro
+                        </h1>
+                        <h2 class="subtitle">
+                            Únete a nuestra comunidad de voluntarios
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form id="registroForm" class="container p-6">
         <div class="columns is-multiline">
-           
             <div class="column is-full-mobile is-half-tablet">
+                <h2 class="title">Datos Personales</h2>
+
                 <div class="field">
                     <label class="label" for="nombre">Nombre Completo</label>
                     <div class="control">
@@ -105,65 +128,6 @@
                         </label>
                     </div>
                 </div>
-            </div>
-            <div class="column is-full-mobile is-half-tablet">
-                <div class="field">
-                    <label class="label">¿Has participado en algún voluntariado antes?</label>
-                    <div class="control">
-                        <label class="radio">
-                            <input type="radio" name="answer" value="si"> Sí
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer" value="no"> No
-                        </label>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label" for="asociacion">¿En qué asociación/es has realizado voluntariado?</label>
-                    <div class="control">
-                        <textarea class="textarea is-small" id="asociacion" placeholder="Cuéntanos..."></textarea>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label" for="acciones">¿Qué acciones realizabas?</label>
-                    <div class="control">
-                        <textarea class="textarea is-small" id="acciones" placeholder="Cuéntanos..."></textarea>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
-                    <div class="checkboxes">
-                        <label class="checkbox">
-                            <input type="checkbox" value="social"> Social
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="ambiental"> Ambiental
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="educativo"> Educativo
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="cultural"> Cultural
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="deportivo"> Deportivo
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="salud"> Salud
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="digital"> Digital
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="tecnico"> Técnico
-                        </label>
-                    </div>
-                </div>
-            </div>      
-            <div class="column is-full-mobile is-half-tablet">
                 <div class="field">
                     <label class="label">¿Cuántas horas semanales podrías emplear?</label>
                     <div class="control">
@@ -184,7 +148,7 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Disponibilidad</label>
+                    <label class="label">Días de disponibilidad</label>
                     <div class="checkboxes">
                         <label class="checkbox">
                             <input type="checkbox" value="lunes"> Lunes
@@ -231,6 +195,66 @@
                     </div>
                     <div class="control">
                         <button class="button is-danger is-fullwidth-mobile" type="reset">Borrar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full-mobile is-half-tablet">
+                <h2 class="title">Datos de Voluntariado</h2>
+
+                <div class="field">
+                    <label class="label">¿Has participado en algún voluntariado antes?</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="answer" value="si"> Sí
+                        </label>
+                        <label class="radio ml-2">
+                            <input type="radio" name="answer" value="no"> No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="asociacion">¿En qué asociación/es has realizado voluntariado?</label>
+                    <div class="control">
+                        <textarea class="textarea is-small" id="asociacion" placeholder="Cuéntanos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="acciones">¿Qué acciones realizabas?</label>
+                    <div class="control">
+                        <textarea class="textarea is-small" id="acciones" placeholder="Cuéntanos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
+                    <div class="checkboxes">
+                        <label class="checkbox">
+                            <input type="checkbox" value="social"> Social
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="ambiental"> Ambiental
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="educativo"> Educativo
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="cultural"> Cultural
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="deportivo"> Deportivo
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="salud"> Salud
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="digital"> Digital
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" value="tecnico"> Técnico
+                        </label>
                     </div>
                 </div>
             </div>
