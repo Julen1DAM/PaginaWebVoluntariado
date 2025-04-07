@@ -144,3 +144,39 @@ iframe{
 .navbar-link::after {
   border-color: #333 !important; 
 }
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  margin: auto;
+  gap: 20px; /* Add spacing between cards */
+  justify-content: flex-start; /* Align cards to the start */
+}
+
+.carousel-card {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}

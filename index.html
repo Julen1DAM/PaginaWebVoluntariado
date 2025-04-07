@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Voluntariado Cuatrovientos</title>
   <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="./bulma.css">
   <link rel="icon" type="image/png" href="./Imagenes/LOGOVoluntariado.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./estilos.css">
+=======
+  <link rel="stylesheet" type="text/css" href="./estilos/bulma.css">
+  <link rel="stylesheet" type="text/css" href="./estilos/estilos.css">
+  <link rel="icon" type="image/png" href="./Imagenes/LOGOVoluntariado.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
 </head>
 <body>
   <nav class="navbar is-fixed-top" aria-label="main navigation">
@@ -129,14 +136,21 @@
         En el voluntariado de nuestro instituto, llevamos a cabo actividades que buscan mejorar nuestra comunidad 
         y contribuir a los Objetivos de Desarrollo Sostenible (ODS). Descubre cómo trabajamos para un mundo mejor.
       </div>
+<<<<<<< HEAD
       <div class="columns is-mobile is-scrollable">
         <div class="column is-one-third">
           <div class="card is-flex is-flex-direction-column">
+=======
+      <div class="carousel box">
+        <div class="carousel-track">
+            <div class="carousel-card card m-2">
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
             <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="Imagenes/SOLERATallerDigitalizacion.png" alt="Taller de digitalización">
+              <figure class="image is-2by1">
+              <img src="Imagenes/SOLERATallerDigitalizacion.png" alt="Taller de digitalización">
               </figure>
             </div>
+<<<<<<< HEAD
             <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
               <div style="flex-grow: 1;">
                 <p class="title">Taller de digitalización</p>
@@ -155,8 +169,26 @@
         </div>
         <div class="column is-one-third">
           <div class="card is-flex is-flex-direction-column">
+=======
+            <div class="card-content is-flex is-flex-direction-column">
+              <div>
+              <p class="title">Taller de digitalización</p>
+              <p class="subtitle">Centro de día SOLERA</p>
+              </div>
+              <div>
+              <p><span class="negrita">Fecha inicio: 21 de octubre de 2024</span></p>
+              <p>Taller para enseñar nuevos recursos digitales a personas mayores.</p>
+              <div class="tags">
+                <span class="tag is-success">ODS 4: Educación de calidad</span>
+                <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-card card m-2">
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-2by1">
                 <img src="Imagenes/AMAVIRActividadesLudicas.jpg" alt="Actividades lúdicas">
               </figure>
             </div>
@@ -173,13 +205,17 @@
                   <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
                 </div>
               </div>
-            </div>
+              </div>
           </div>
+<<<<<<< HEAD
         </div>
         <div class="column is-one-third">
           <div class="card is-flex is-flex-direction-column">
+=======
+          <div class="carousel-card card m-2">
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-2by1">
                 <img src="Imagenes/UNZUTXIKIAlimentos.jpg" alt="Distribución de alimentos y productos de higiene">
               </figure>
             </div>
@@ -198,11 +234,15 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
         <div class="column is-one-third">
           <div class="card is-flex is-flex-direction-column">
+=======
+          <div class="carousel-card card m-2">
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-2by1">
                 <img src="Imagenes/ANFASTallerDigitalizacion.png" alt="Taller competencias digitales">
               </figure>
             </div>
@@ -222,6 +262,7 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="column is-one-third">
           <div class="card is-flex is-flex-direction-column">
             <div class="card-image">
@@ -245,6 +286,10 @@
             </div>
           </div>
         </div>
+=======
+        <button class="button is-dark is-small carousel-btn prev">&#10094;</button>
+        <button class="button is-dark is-small carousel-btn next">&#10095;</button>
+>>>>>>> 35aecf6398ce9887e88a17b812e73d5e1989867d
       </div>
     </div>
   </section>
@@ -299,19 +344,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      $navbarBurgers.forEach(el => {
-        el.addEventListener('click', () => {
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
+<script src="scripCarrusel.JS" defer></script>
