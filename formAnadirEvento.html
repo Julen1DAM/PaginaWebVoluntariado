@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de Evento</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="./Javascripts/formAnadirEvento.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <form class="box" method="post" action="#">
+        <h4 class="title is-5">Añadir / Editar Evento</h4>
+        <div class="columns is-multiline">
+          <!-- Foto -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Foto URL</label>
+              <div class="control">
+                <input class="input" type="text" name="foto" placeholder="URL de la foto">
+              </div>
+            </div>
+          </div>
+          <!-- Fecha -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Fecha</label>
+              <div class="control">
+                <input class="input" type="date" name="fecha">
+              </div>
+            </div>
+          </div>
+
+          <!-- Empresa -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Empresa</label>
+              <div class="control">
+                <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa">
+              </div>
+            </div>
+          </div>
+
+          <!-- Lugar -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Lugar</label>
+              <div class="control">
+                <input class="input" type="text" name="lugar" placeholder="Lugar del evento">
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción -->
+          <div class="column is-12">
+            <div class="field">
+              <label class="label">Descripción</label>
+              <div class="control">
+                <textarea class="textarea" name="descripcion" placeholder="Descripción del evento"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo de voluntariado -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Tipo de Voluntariado</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select name="tipo_voluntariado">
+                    <option value="">-- Selecciona un tipo --</option>
+                    <option value="Social">Voluntariado Social</option>
+                    <option value="Ambiental">Voluntariado Ambiental</option>
+                    <option value="Educativo">Voluntariado Educativo</option>
+                    <option value="Cultural">Voluntariado Cultural</option>
+                    <option value="Deportivo">Voluntariado Deportivo</option>
+                    <option value="Salud">Voluntariado en Salud</option>
+                    <option value="Digital">Voluntariado Digital</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ODS -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">ODS</label>
+              <div class="control">
+                <div class="select is-multiple is-fullwidth">
+                  <select name="ods[]" multiple size="4">
+                    <option value="ODS 1">ODS 1: Fin de la pobreza</option>
+                    <option value="ODS 2">ODS 2: Hambre cero</option>
+                    <option value="ODS 3">ODS 3: Salud y bienestar</option>
+                    <option value="ODS 4">ODS 4: Educación de calidad</option>
+                    <option value="ODS 5">ODS 5: Igualdad de género</option>
+                    <option value="ODS 6">ODS 6: Agua limpia y saneamiento</option>
+                    <option value="ODS 7">ODS 7: Energía asequible y no contaminante</option>
+                    <option value="ODS 8">ODS 8: Trabajo decente y crecimiento económico</option>
+                    <option value="ODS 9">ODS 9: Industria, innovación e infraestructura</option>
+                    <option value="ODS 10">ODS 10: Reducción de las desigualdades</option>
+                    <option value="ODS 11">ODS 11: Ciudades y comunidades sostenibles</option>
+                    <option value="ODS 12">ODS 12: Producción y consumo responsables</option>
+                    <option value="ODS 13">ODS 13: Acción por el clima</option>
+                    <option value="ODS 14">ODS 14: Vida submarina</option>
+                    <option value="ODS 15">ODS 15: Vida de ecosistemas terrestres</option>
+                    <option value="ODS 16">ODS 16: Paz, justicia e instituciones sólidas</option>
+                    <option value="ODS 17">ODS 17: Alianzas para lograr los objetivos</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón -->
+          <div class="column is-12">
+            <div class="field is-grouped is-grouped-right">
+              <div class="control">
+                <button type="submit" class="button is-success">Guardar Evento</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

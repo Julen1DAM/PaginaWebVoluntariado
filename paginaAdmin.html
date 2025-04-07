@@ -418,7 +418,7 @@
         </div>
       </form>
 
-      <form class="box">
+      <form class="box" action="#" method="post">
         <h4 class="title is-5">Añadir / Editar Evento</h4>
         <div class="columns is-multiline">
           <div class="column is-6">
@@ -459,7 +459,7 @@
 
           <div class="column is-12">
             <div class="field">
-              <label class="label">Descripción</label>
+              <label class="</div>label">Descripción</label>
               <div class="control">
                 <textarea class="textarea" name="descripcion" placeholder="Descripción del evento"></textarea>
               </div>
@@ -488,7 +488,7 @@
 
           <div class="column is-6">
             <div class="field">
-              <label class="label">ODS</label>
+              <label class="label">ODS</label></select>
               <div class="control">
                 <div class="select is-multiple is-fullwidth">
                   <select name="ods[]" multiple size="4">
@@ -514,21 +514,19 @@
               </div>
             </div>
           </div>
-
           <div class="column is-12">
             <div class="field is-grouped is-grouped-right">
               <div class="control">
-                <button type="button" class="button is-success">Guardar Evento</button>
+                <button type="button" id="btn-guardar" class="button is-success">Guardar Evento</button>
               </div>
             </div>
           </div>
         </div>
       </form>
-
       <div class="box">
         <h3 class="title is-4">Eventos</h3>
         <div class="table-container">
-          <table class="table is-fullwidth is-hoverable is-striped is-responsive">
+          <table id="tabla-eventos" class="table is-fullwidth is-hoverable is-striped is-responsive">
             <thead>
               <tr>
                 <th>Foto</th>
@@ -542,7 +540,7 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="lista-eventos"></tbody>>
               <tr>
                 <td>
                   <figure class="image is-64x64">
@@ -654,46 +652,6 @@
       </div>
     </div>
   </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    $navbarBurgers.forEach(el => {
-      el.addEventListener('click', () => {
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
-    });
-  });
-  document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("tbody tr").forEach(row => {
-    const editarBtn = row.querySelector(".button.is-info");
-    const eliminarBtn = row.querySelector(".button.is-danger");
-
-    eliminarBtn.addEventListener("click", () => {
-      row.remove();
-    });
-
-    editarBtn.addEventListener("click", () => {
-      const celdas = row.querySelectorAll("td");
-      const esEdicion = editarBtn.textContent === "Guardar";
-      for (let i = 1; i < celdas.length - 1; i++) {
-        if (!esEdicion) {
-          const texto = celdas[i].textContent;
-          celdas[i].innerHTML = `<input type="text" value="${texto}">`;
-        } else {
-          const input = celdas[i].querySelector("input");
-          celdas[i].textContent = input.value;
-        }
-      }
-
-      editarBtn.textContent = esEdicion ? "Editar" : "Guardar";
-    });
-  });
-});
-
-
-</script>
+<script src="./Javascripts/coordinador.js"></script>
 </body>
 </html>
