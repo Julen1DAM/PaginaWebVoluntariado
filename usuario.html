@@ -1,36 +1,160 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voluntariado</title>
-    <link rel="stylesheet" type="text/css" href="./estiloUsuario.css">
-</head>
-<body>
-    
-    <div class="container">
-        <h1>Actividades de Voluntariado</h1>
-        <div class="activity">
-            <h3>Limpieza de parques</h3>
-            <p>Ayuda a mantener los parques limpios y seguros.</p>
-            <button onclick="inscribirse('Limpieza de parques')">Inscribirse</button>
-        </div>
-        <div class="activity">
-            <h3>Reparto de alimentos</h3>
-            <p>Colabora en la distribución de comida a personas necesitadas.</p>
-            <button onclick="inscribirse('Reparto de alimentos')">Inscribirse</button>
-        </div>
-        <div class="activity">
-            <h3>Apoyo escolar</h3>
-            <p>Brinda ayuda con tareas y estudios a niños y jóvenes.</p>
-            <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
-        </div>
-    </div>
+<html lang="es" data-theme="light">
 
-    <script>
-        function inscribirse(actividad) {
-            alert('Te has inscrito en ' + actividad);
-        }
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voluntariado</title>
+  <link rel="stylesheet" type="text/css" href="./estiloUsuario.css">
+  <link rel="stylesheet" type="text/css" href="./bulma.css">
+  <link rel="stylesheet" type="text/css" href="./estilos.css">
+</head>
+
+<body>
+  <nav class="navbar is-fixed-top" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cuatrovientos.org" target="_blank">
+        <img class="imgNav" src="./Imagenes/LOGOVoluntariado.png" alt="Logo Voluntariado">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span>Usuario</span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="#">Perfil</a>
+            <a class="navbar-item" href="#">Configuración</a>
+            <hr class="navbar-divider">
+            <a class="navbar-item has-text-danger" href="./index.html">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div id="queHacemos" class="container">
+      <h1 class="title has-text-centered">VOLUNTARIADOS</h1>
+      <div class="columns is-multiline">
+        <div class="column is-one-third">
+          <div class="card is-flex is-flex-direction-column">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Imagenes/SOLERATallerDigitalizacion.png" alt="Taller de digitalización">
+              </figure>
+            </div>
+            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+              <div style="flex-grow: 1;">
+                <p class="title">Taller de digitalización</p>
+                <p class="subtitle">Centro de día SOLERA</p>
+              </div>
+              <div>
+                <p><strong>Fecha inicio: 21 de octubre de 2024</strong></p>
+                <p>Taller para enseñar nuevos recursos digitales a personas mayores.</p>
+                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-two-third">
+          <div class="card is-flex is-flex-direction-column">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Imagenes/AMAVIRActividadesLudicas.jpg" alt="Actividades lúdicas">
+              </figure>
+            </div>
+            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+              <div style="flex-grow: 1;">
+                <p class="title">Actividades lúdicas</p>
+                <p class="subtitle">Residencia Amavir-oblatas</p>
+              </div>
+              <div>
+                <p><strong>Fecha inicio: 6 de noviembre de 2024</strong></p>
+                <p>Para promover la actividad física y bienestar de las personas mayores</p>
+                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card is-flex is-flex-direction-column">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Imagenes/UNZUTXIKIAlimentos.jpg" alt="Distribución de alimentos y productos de higiene">
+              </figure>
+            </div>
+            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+              <div style="flex-grow: 1;">
+                <p class="title">Distribución de alimentos y productos de higiene</p>
+                <p class="subtitle">Unzutxiki</p>
+              </div>
+              <div>
+                <p><strong>Fecha inicio: 28 de octubre de 2024</strong></p>
+                <p>Se recogen alimentos y productos de higiene para familias necesitadas de la comunidad.</p>
+                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card is-flex is-flex-direction-column">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Imagenes/ANFASTallerDigitalizacion.png" alt="Taller competencias digitales">
+              </figure>
+            </div>
+            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+              <div style="flex-grow: 1;">
+                <p class="title">Taller competencias digitales</p>
+                <p class="subtitle">Asociación ANFAS sangüesa</p>
+              </div>
+              <div>
+                <p><strong>Fecha inicio: no info</strong></p>
+                <p>Los participantes aprenden herramientas digitales básicas gracias a los cibervoluntarios.</p>
+                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card is-flex is-flex-direction-column">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Imagenes/AECCCharlaContraCancer.png" alt="Charla de prevención Cáncer">
+              </figure>
+            </div>
+            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
+              <div style="flex-grow: 1;">
+                <p class="title">Charla de prevención Cáncer</p>
+                <p class="subtitle">Asociación Española Contra el Cáncer (AECC)</p>
+              </div>
+              <div>
+                <p><strong>Fecha inicio: no info</strong></p>
+                <p>Charla para conocer el trabajo de la AECC y fomentar la prevención para el alumnado de Cuatrovientos.
+                </p>
+                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function inscribirse(actividad) {
+      alert('Te has inscrito en ' + actividad);
+    }
+  </script>
 </body>
+
 </html>
