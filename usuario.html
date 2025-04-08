@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="./estilos/estiloUsuario.css">
   <link rel="stylesheet" type="text/css" href="./estilos/bulma.css">
   <link rel="stylesheet" type="text/css" href="./estilos/estilos.css">
+  <script src="./Javascripts/scripInscribirse.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,6 @@
           </a>
           <div class="navbar-dropdown is-right">
             <a class="navbar-item" href="#">Perfil</a>
-            <a class="navbar-item" href="#">Configuración</a>
             <hr class="navbar-divider">
             <a class="navbar-item has-text-danger" href="./index.html">Cerrar sesión</a>
           </div>
@@ -61,10 +61,7 @@
               <div>
                 <p><strong>Fecha inicio: 21 de octubre de 2024</strong></p>
                 <p>Taller para enseñar nuevos recursos digitales a personas mayores.</p>
-                <div class="tags">
-                  <span class="tag is-success">ODS 4: Educación de calidad</span>
-                  <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
-                </div>
+                <button class="button" id="btn1" onclick="inscribirse('Taller de digitalización')">Inscribirse</button>
               </div>
             </div>
           </div>
@@ -84,10 +81,7 @@
               <div>
                 <p><strong>Fecha inicio: 6 de noviembre de 2024</strong></p>
                 <p>Para promover la actividad física y bienestar de las personas mayores</p>
-                <div class="tags">
-                  <span class="tag is-info">ODS 3: Salud y bienestar</span>
-                  <span class="tag is-primary">ODS 10: Reducción de desigualdades</span>
-                </div>
+                <button class="button" id="btn1" onclick="inscribirse('Actividades lúdicas')">Inscribirse</button>
               </div>
             </div>
           </div>
@@ -107,10 +101,7 @@
               <div>
                 <p><strong>Fecha inicio: 28 de octubre de 2024</strong></p>
                 <p>Se recogen alimentos y productos de higiene para familias necesitadas de la comunidad.</p>
-                <div class="tags">
-                  <span class="tag is-warning">ODS 2: Hambre cero</span>
-                  <span class="tag is-danger">ODS 12: Objetivo de Desarrollo</span>
-                </div>
+                <button class="button" id="btn1" onclick="inscribirse('Distribución de alimentos y productos de higiene')">Inscribirse</button>
               </div>
             </div>
           </div>
@@ -130,10 +121,7 @@
               <div>
                 <p><strong>Fecha inicio: no info</strong></p>
                 <p>Los participantes aprenden herramientas digitales básicas gracias a los cibervoluntarios.</p>
-                <div class="tags">
-                  <span class="tag is-success">ODS 4: Educación de calidad</span>
-                  <span class="tag is-primary">ODS 10: Reducción de las desigualdades</span>
-                </div>
+                <button class="button" id="btn1" onclick="inscribirse('Taller competencias digitales')">Inscribirse</button>
               </div>
             </div>
           </div>
@@ -154,7 +142,7 @@
                 <p><strong>Fecha inicio: no info</strong></p>
                 <p>Charla para conocer el trabajo de la AECC y fomentar la prevención para el alumnado de Cuatrovientos.
                 </p>
-                <button onclick="inscribirse('Apoyo escolar')">Inscribirse</button>
+                <button class="button" id="btn1" onclick="inscribirse('Charla de prevención Cáncer')">Inscribirse</button>
               </div>
             </div>
           </div>
@@ -162,11 +150,6 @@
       </div>
     </div>
   </section>
-  <script>
-    function inscribirse(actividad) {
-      alert('Te has inscrito en ' + actividad);
-    }
-  </script>
 </body>
 
 </html>
