@@ -4,22 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.querySelector(".carousel-btn.prev");
   const nextBtn = document.querySelector(".carousel-btn.next");
 
-  let currentIndex = 0;
+  let indice = 0;
 
-  function updateCarousel() {
+  function actualizarCarrusel() {
     const width = document.querySelector(".carousel").clientWidth;
-    track.style.transform = `translateX(-${currentIndex * width}px)`;
+    track.style.transform = `translateX(-${indice * width}px)`;
   }
 
   nextBtn.addEventListener("click", () => {
     console.log("Next button clicked");
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarousel();
+    indice = (indice + 1) % cards.length;
+    actualizarCarrusel();
   });
 
   prevBtn.addEventListener("click", () => {
     console.log("Prev button clicked");
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarousel();
+    indice = (indice - 1 + cards.length) % cards.length;
+    actualizarCarrusel();
   });
 });
