@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
-    console.log('validador listo')
     form.addEventListener('submit', (e) => {
-        console.log('validador listo')
       const foto = form.foto;
       const fecha = form.fecha;
       const empresa = form.empresa;
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const fechaIngresada = new Date(fecha.value);
       const hoy = new Date();
       hoy.setHours(0, 0, 0, 0); // Eliminar hora para comparar solo la fecha
-
       if (!fecha.value || fechaIngresada <= hoy) {
         e.preventDefault();
         alert("La fecha debe ser posterior a hoy.");
