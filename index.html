@@ -54,7 +54,7 @@
             <div class="field">
               <label class="label">Nombre De Usuario</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text" placeholder="Ej: JuanGarcía21">
+                <input class="input is-success" type="text" id="username" placeholder="Ej: JuanGarcía21">
                 <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
               </div>
             </div>
@@ -67,9 +67,10 @@
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Entrar</button>
+                <button class="button is-link" id="btnEntrar">Entrar</button>
               </div>
             </div>
+            <p id="error"></p>
           </form>
         </div>
       </div>
@@ -83,14 +84,13 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-full has-text-centered">
-            <div id="fondotxtprincipal" class="box has-background-white p-6">
-              <h1 class="title has-text-primary">Voluntariado Cuatrovientos</h1>
-              <h2 class="subtitle has-text-grey-dark">
+            <div id="fondotxtprincipal" class="box has-background-white p-4 is-size-6-mobile">
+              <h1 class="title has-text-primary is-size-4-mobile">Voluntariado Cuatrovientos</h1>
+              <h2 class="subtitle has-text-grey-dark is-size-6-mobile">
                 ¡Haz la diferencia! Participa en iniciativas que impactan positivamente a nuestra comunidad.<br>
                 Desarrolla nuevas habilidades, haz amigos y contribuye al bien común.
               </h2>
-              <a href="form.html" class="button is-primary is-medium is-rounded is-size-3-mobile mt-4" target="_blank">
-                Apúntate ahora y sé parte del cambio.
+              <a href="form.html" class="button is-primary is-medium is-rounded is-size-5-mobile mt-3" target="_blank">Apúntate ahora y sé parte del cambio.</a>
               </a>
             </div>
           </div>
@@ -270,4 +270,5 @@
   </footer>
 </body>
 </html>
+<script src="Javascripts/registrarse.js" defer></script>
 <script src="Javascripts/scriptCarrusel.js" defer></script>
