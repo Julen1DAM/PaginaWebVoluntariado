@@ -46,7 +46,9 @@ button {
 button:hover{
     background-color: green;
 }
-
+button.apuntado {
+    background-color: red; /* cambia a rojo al inscribirse */
+  }
 #voluntariadofoto{
     display: block;
     margin-left: auto;
