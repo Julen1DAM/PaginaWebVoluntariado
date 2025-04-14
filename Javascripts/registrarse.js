@@ -1,6 +1,7 @@
 const btnEntrar = document.getElementById('btnEntrar')
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
+const error = document.getElementById("error");
 function iniciarSesion() {
     const usuario = usernameInput.value;
     const contrasena = passwordInput.value;
@@ -20,7 +21,8 @@ function iniciarSesion() {
             }
             break;
         default:
-            alert("Usuario no reconocido.");
+            error.innerHTML = "Usuario no encontrado.";
+            error.style.color = "red";
             break;
     }
 }
