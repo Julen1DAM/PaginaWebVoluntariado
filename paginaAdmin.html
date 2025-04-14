@@ -560,184 +560,156 @@
   </div>
 
   <!-- Modal para añadir actividad -->
-  <div class="modal" id="modalActividad">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Añadir Nueva Actividad</p>
-        <button class="delete" aria-label="close" id="cerrarModal"></button>
-      </header>
-      <section class="modal-card-body">
-        <form class="box has-shadow" method="post" action="#" id="formActividad">
-          <h4 class="title is-4 has-text-primary">Añadir / Editar Evento</h4>
-          <p class="subtitle is-6 has-text-grey">Completa la información del evento para que pueda ser publicado en la plataforma.</p>
+<div class="modal" id="modalActividad">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Añadir Nueva Actividad</p>
+      <button class="delete" aria-label="close" id="cerrarModal"></button>
+    </header>
+    <section class="modal-card-body">
+      <form class="box has-shadow" method="post" action="#" id="formActividad">
+        <h4 class="title is-4 has-text-primary">Añadir / Editar Evento</h4>
+        <p class="subtitle is-6 has-text-grey">Completa la información del evento para que pueda ser publicado en la plataforma.</p>
 
-          <div class="columns is-multiline mt-3">
-            <!-- Foto -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">Foto URL</label>
-                <div class="control has-icons-left">
-                  <input class="input" type="text" name="foto" placeholder="URL de la foto">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-image"></i>
-                  </span>
-                </div>
+        <div class="columns is-multiline mt-3">
+          <!-- Foto -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Foto URL</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" name="foto" placeholder="URL de la foto" id="fotoActividad">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-image"></i>
+                </span>
               </div>
             </div>
+          </div>
 
-            <!-- Fecha -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">Fecha</label>
-                <div class="control has-icons-left">
-                  <input class="input" type="date" name="fecha">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-calendar-alt"></i>
-                  </span>
+          <!-- Fechas Múltiples -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Fechas</label>
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="date" id="fechaActividad">
                 </div>
-              </div>
-            </div>
-
-            <!-- Empresa -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">Empresa</label>
-                <div class="control has-icons-left">
-                  <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-building"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Lugar -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">Lugar</label>
-                <div class="control has-icons-left">
-                  <input class="input" type="text" name="lugar" placeholder="Lugar del evento">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-map-marker-alt"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Descripción -->
-            <div class="column is-12">
-              <div class="field">
-                <label class="label">Descripción</label>
                 <div class="control">
-                  <textarea class="textarea" name="descripcion" placeholder="Descripción del evento"></textarea>
+                  <button type="button" class="button is-primary" id="agregarFecha">
+                    <span class="icon">
+                      <i class="fas fa-plus"></i>
+                    </span>
+                  </button>
                 </div>
               </div>
+              <div id="listaFechas" class="tags mt-2"></div>
+              <input type="hidden" id="fechasSeleccionadas">
             </div>
+          </div>
 
-            <!-- Tipo de voluntariado -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">Tipo de Voluntariado</label>
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <select name="tipo_voluntariado">
-                      <option value="">-- Selecciona un tipo --</option>
-                      <option value="Social">Voluntariado Social</option>
-                      <option value="Ambiental">Voluntariado Ambiental</option>
-                      <option value="Educativo">Voluntariado Educativo</option>
-                      <option value="Cultural">Voluntariado Cultural</option>
-                      <option value="Deportivo">Voluntariado Deportivo</option>
-                      <option value="Salud">Voluntariado en Salud</option>
-                      <option value="Digital">Voluntariado Digital</option>
-                    </select>
-                  </div>
-                </div>
+          <!-- Empresa -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Empresa</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa" id="empresaActividad">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-building"></i>
+                </span>
               </div>
             </div>
+          </div>
 
-            <!-- ODS -->
-            <div class="column is-6">
-              <div class="field">
-                <label class="label">ODS</label>
-                <div class="control">
-                  <div class="select is-multiple is-fullwidth">
-                    <select name="ods[]" multiple size="4">
-                      <option value="ODS 1">ODS 1: Fin de la pobreza</option>
-                      <option value="ODS 2">ODS 2: Hambre cero</option>
-                      <option value="ODS 3">ODS 3: Salud y bienestar</option>
-                      <option value="ODS 4">ODS 4: Educación de calidad</option>
-                      <option value="ODS 5">ODS 5: Igualdad de género</option>
-                      <option value="ODS 6">ODS 6: Agua limpia y saneamiento</option>
-                      <option value="ODS 7">ODS 7: Energía asequible y no contaminante</option>
-                      <option value="ODS 8">ODS 8: Trabajo decente y crecimiento económico</option>
-                      <option value="ODS 9">ODS 9: Industria, innovación e infraestructura</option>
-                      <option value="ODS 10">ODS 10: Reducción de las desigualdades</option>
-                      <option value="ODS 11">ODS 11: Ciudades y comunidades sostenibles</option>
-                      <option value="ODS 12">ODS 12: Producción y consumo responsables</option>
-                      <option value="ODS 13">ODS 13: Acción por el clima</option>
-                      <option value="ODS 14">ODS 14: Vida submarina</option>
-                      <option value="ODS 15">ODS 15: Vida de ecosistemas terrestres</option>
-                      <option value="ODS 16">ODS 16: Paz, justicia e instituciones sólidas</option>
-                      <option value="ODS 17">ODS 17: Alianzas para lograr los objetivos</option>
-                    </select>
-                  </div>
+          <!-- Lugar -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Lugar</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" name="lugar" placeholder="Lugar del evento" id="lugarActividad">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-map-marker-alt"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción -->
+          <div class="column is-12">
+            <div class="field">
+              <label class="label">Descripción</label>
+              <div class="control">
+                <textarea class="textarea" name="descripcion" placeholder="Descripción del evento" id="descripcionActividad"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo de voluntariado -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Tipo de Voluntariado</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select name="tipo_voluntariado" id="tipoVoluntariado">
+                    <option value="">-- Selecciona un tipo --</option>
+                    <option value="Social">Voluntariado Social</option>
+                    <option value="Ambiental">Voluntariado Ambiental</option>
+                    <option value="Educativo">Voluntariado Educativo</option>
+                    <option value="Cultural">Voluntariado Cultural</option>
+                    <option value="Deportivo">Voluntariado Deportivo</option>
+                    <option value="Salud">Voluntariado en Salud</option>
+                    <option value="Digital">Voluntariado Digital</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
-        </form>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success" id="guardarActividad">
-          <span class="icon">
-            <i class="fas fa-save"></i>
-          </span>
-          <span>Guardar Evento</span>
-        </button>
-        <button class="button" id="cancelarActividad">Cancelar</button>
-      </footer>
-    </div>
+
+          <!-- ODS -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">ODS</label>
+              <div class="control">
+                <div class="select is-multiple is-fullwidth">
+                  <select name="ods[]" multiple size="4" id="odsActividad">
+                    <option value="ODS 1">ODS 1: Fin de la pobreza</option>
+                    <option value="ODS 2">ODS 2: Hambre cero</option>
+                    <option value="ODS 3">ODS 3: Salud y bienestar</option>
+                    <option value="ODS 4">ODS 4: Educación de calidad</option>
+                    <option value="ODS 5">ODS 5: Igualdad de género</option>
+                    <option value="ODS 6">ODS 6: Agua limpia y saneamiento</option>
+                    <option value="ODS 7">ODS 7: Energía asequible y no contaminante</option>
+                    <option value="ODS 8">ODS 8: Trabajo decente y crecimiento económico</option>
+                    <option value="ODS 9">ODS 9: Industria, innovación e infraestructura</option>
+                    <option value="ODS 10">ODS 10: Reducción de las desigualdades</option>
+                    <option value="ODS 11">ODS 11: Ciudades y comunidades sostenibles</option>
+                    <option value="ODS 12">ODS 12: Producción y consumo responsables</option>
+                    <option value="ODS 13">ODS 13: Acción por el clima</option>
+                    <option value="ODS 14">ODS 14: Vida submarina</option>
+                    <option value="ODS 15">ODS 15: Vida de ecosistemas terrestres</option>
+                    <option value="ODS 16">ODS 16: Paz, justicia e instituciones sólidas</option>
+                    <option value="ODS 17">ODS 17: Alianzas para lograr los objetivos</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" id="guardarActividad">
+        <span class="icon">
+          <i class="fas fa-save"></i>
+        </span>
+        <span>Guardar Evento</span>
+      </button>
+      <button class="button" id="cancelarActividad">Cancelar</button>
+    </footer>
   </div>
+</div>
 
 <script src="./Javascripts/coordinador.js"></script>
 <script>
-  // Script para manejar el modal
-  document.addEventListener('DOMContentLoaded', () => {
-    // Elementos del modal
-    const modal = document.getElementById('modalActividad');
-    const btnAbrir = document.getElementById('btnAñadirActividad');
-    const btnCerrar = document.getElementById('cerrarModal');
-    const btnCancelar = document.getElementById('cancelarActividad');
-    const btnGuardar = document.getElementById('guardarActividad');
-
-    // Abrir modal
-    btnAbrir.addEventListener('click', () => {
-      modal.classList.add('is-active');
-    });
-
-    // Cerrar modal
-    btnCerrar.addEventListener('click', () => {
-      modal.classList.remove('is-active');
-    });
-
-    btnCancelar.addEventListener('click', () => {
-      modal.classList.remove('is-active');
-    });
-
-    // Guardar actividad (aquí puedes añadir la lógica para guardar)
-    btnGuardar.addEventListener('click', () => {
-      // Lógica para guardar la actividad
-      alert('Actividad guardada correctamente');
-      modal.classList.remove('is-active');
-      // Aquí podrías recargar la tabla o añadir la nueva actividad dinámicamente
-    });
-
-    // Cerrar modal haciendo clic en el fondo
-    modal.querySelector('.modal-background').addEventListener('click', () => {
-      modal.classList.remove('is-active');
-    });
-  });
 </script>
 </body>
 </html>

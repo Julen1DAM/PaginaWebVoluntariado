@@ -176,3 +176,199 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  // Elementos del modal
+  const modal = document.getElementById('modalActividad');
+  const btnAbrir = document.getElementById('btnAñadirActividad');
+  const btnCerrar = document.getElementById('cerrarModal');
+  const btnCancelar = document.getElementById('cancelarActividad');
+  const btnGuardar = document.getElementById('guardarActividad');
+  const btnAgregarFecha = document.getElementById('agregarFecha');
+  
+  // Elementos del formulario
+  const inputFecha = document.getElementById('fechaActividad');
+  const listaFechas = document.getElementById('listaFechas');
+  const fechasSeleccionadas = document.getElementById('fechasSeleccionadas');
+  const fotoInput = document.getElementById('fotoActividad');
+  const descripcionInput = document.getElementById('descripcionActividad');
+  const empresaInput = document.getElementById('empresaActividad');
+  const lugarInput = document.getElementById('lugarActividad');
+  const tipoVoluntariadoSelect = document.getElementById('tipoVoluntariado');
+  const odsSelect = document.getElementById('odsActividad');
+  
+  // Tabla de eventos
+  const tablaEventos = document.getElementById('lista-eventos');
+
+  // Array para almacenar las fechas seleccionadas
+  let fechas = [];
+
+  // Abrir modal
+  btnAbrir.addEventListener('click', () => {
+    // Limpiar el formulario al abrir
+    resetForm();
+    modal.classList.add('is-active');
+  });
+
+  // Cerrar modal
+  btnCerrar.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+
+  btnCancelar.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+
+  // Agregar fecha a la lista
+  btnAgregarFecha.addEventListener('click', () => {
+    const fecha = inputFecha.value;
+    if (fecha && !fechas.includes(fecha)) {
+      fechas.push(fecha);
+      actualizarListaFechas();
+      inputFecha.value = ''; // Limpiar el input después de agregar
+    }
+  });
+
+  // Función para actualizar la lista visual de fechas
+  function actualizarListaFechas() {
+    listaFechas.innerHTML = '';
+    fechas.forEach((fecha, index) => {
+      const tag = document.createElement('span');
+      tag.className = 'tag is-info';
+      tag.innerHTML = `
+        ${fecha}
+        <button class="delete is-small" data-index="${index}"></button>
+      `;
+      listaFechas.appendChild(tag);
+    });
+    
+    // Actualizar el input hidden con las fechas como string separado por comas
+    fechasSeleccionadas.value = fechas.join(',');
+    
+    // Agregar event listeners a los botones de eliminar
+    document.querySelectorAll('#listaFechas .delete').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const index = e.target.getAttribute('data-index');
+        fechas.splice(index, 1);
+        actualizarListaFechas();
+      });
+    });
+  }
+
+  // Guardar actividad
+  btnGuardar.addEventListener('click', () => {
+    // Validar campos obligatorios
+    if (!validarFormulario()) {
+      return;
+    }
+    
+    // Obtener los ODS seleccionados
+    const odsSeleccionados = Array.from(odsSelect.selectedOptions).map(option => option.value);
+    
+    // Crear la nueva actividad
+    const nuevaActividad = {
+      foto: fotoInput.value || './Imagenes/voluntariado.png',
+      descripcion: descripcionInput.value,
+      fechas: fechas.join(', '),
+      empresa: empresaInput.value,
+      lugar: lugarInput.value,
+      tipo: tipoVoluntariadoSelect.value,
+      ods: odsSeleccionados.join(', '),
+      voluntarios: [] // Inicialmente sin voluntarios
+    };
+    
+    // Añadir la actividad a la tabla
+    agregarActividadATabla(nuevaActividad);
+    
+    // Cerrar el modal y limpiar el formulario
+    modal.classList.remove('is-active');
+    resetForm();
+  });
+
+  // Función para validar el formulario
+  function validarFormulario() {
+    if (fechas.length === 0) {
+      alert('Por favor, añade al menos una fecha para la actividad');
+      return false;
+    }
+    
+    if (!descripcionInput.value) {
+      alert('Por favor, ingresa una descripción para la actividad');
+      return false;
+    }
+    
+    if (!empresaInput.value) {
+      alert('Por favor, ingresa el nombre de la empresa/organización');
+      return false;
+    }
+    
+    if (!lugarInput.value) {
+      alert('Por favor, ingresa el lugar donde se realizará la actividad');
+      return false;
+    }
+    
+    if (!tipoVoluntariadoSelect.value) {
+      alert('Por favor, selecciona un tipo de voluntariado');
+      return false;
+    }
+    
+    return true;
+  }
+
+  // Función para agregar una actividad a la tabla
+  function agregarActividadATabla(actividad) {
+    const row = document.createElement('tr');
+    
+    // Formatear la lista de voluntarios
+    let listaVoluntarios = '<ul>';
+    if (actividad.voluntarios && actividad.voluntarios.length > 0) {
+      actividad.voluntarios.forEach(voluntario => {
+        listaVoluntarios += `<li>${voluntario}</li>`;
+      });
+    } else {
+      listaVoluntarios += '<li>No hay voluntarios inscritos aún</li>';
+    }
+    listaVoluntarios += '</ul>';
+    
+    row.innerHTML = `
+      <td>
+        <figure class="image is-64x64">
+          <img src="${actividad.foto}" alt="${actividad.descripcion}">
+        </figure>
+      </td>
+      <td>${actividad.descripcion}</td>
+      <td>${actividad.fechas}</td>
+      <td>${actividad.empresa}</td>
+      <td>${actividad.lugar}</td>
+      <td>${actividad.tipo}</td>
+      <td>${actividad.ods}</td>
+      <td>${listaVoluntarios}</td>
+      <td>
+        <div class="buttons">
+          <a class="button is-small is-info">Editar</a>
+          <a class="button is-small is-danger">Eliminar</a>
+        </div>
+      </td>
+    `;
+    
+    // Agregar la fila a la tabla (al inicio)
+    tablaEventos.insertBefore(row, tablaEventos.firstChild);
+  }
+
+  // Función para limpiar el formulario
+  function resetForm() {
+    fotoInput.value = '';
+    descripcionInput.value = '';
+    empresaInput.value = '';
+    lugarInput.value = '';
+    tipoVoluntariadoSelect.value = '';
+    odsSelect.selectedIndex = -1;
+    inputFecha.value = '';
+    fechas = [];
+    listaFechas.innerHTML = '';
+    fechasSeleccionadas.value = '';
+  }
+  // Cerrar modal haciendo clic en el fondo
+  modal.querySelector('.modal-background').addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+});
