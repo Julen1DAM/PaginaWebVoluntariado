@@ -10,14 +10,16 @@ function iniciarSesion() {
             if (contrasena === "4Vientos") {
                 window.location.href = "paginaAdmin.html";
             } else {
-                alert("Contraseña incorrecta.");
+                error.innerHTML = "Contraseña incorrecta.";
+                error.style.color = "red";
             }
             break;
         case "Juan":
             if (contrasena === "1234") {
                 window.location.href = "usuario.html";
             } else {
-                alert("Contraseña incorrecta.");
+                error.innerHTML = "Contraseña incorrecta.";
+                error.style.color = "red";
             }
             break;
         default:
