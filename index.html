@@ -48,30 +48,40 @@
         <p class="modal-card-title">Inicia Sesión</p>
         <label for="modal-toggle" class="delete" aria-label="close"></label>
       </header>
-      <div class="modal-card-body">
+      <div class="modal-card-body" >
         <div class="columns">
           <form>
             <div class="field">
               <label class="label">Nombre De Usuario</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text" id="username" placeholder="Ej: JuanGarcía21">
+              <div class="control has-icons-left">
+                <input class="input" type="text" id="username" placeholder="Ej: JuanGarcía21" required>
                 <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                <p class="help is-danger" id="error-msg-usuario">Solo se permiten letras y números</p>
               </div>
+              <script src="./Javascripts/usuario.js"></script>
             </div>
             <div class="field">
               <label class="label">Contraseña</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="password" id="password" name="password" placeholder="******" required>
+                <input class="input is-success" type="password" id="contra" name="contra" placeholder="******" required>
                 <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                <p class="help is-danger" id="error-msg-contra">Debe tener mínimo 6 caracteres</p>
               </div>
+              <script src="./Javascripts/contra.js"></script>
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link" id="btnEntrar">Entrar</button>
+                <button class="button is-link">Entrar</button>
+              </div>
+              <div class="control">
+                <button class="button is-danger" type="reset" value="borrar">Borrar</button>
               </div>
             </div>
-            <p id="error"></p>
+            <script src="./Javascripts/bienvenida.js"></script>
           </form>
+          <div id="bienvenida" class="notification is-success is-light">
+            ¡Bienvenido!
+          </div>
         </div>
       </div>
       <footer class="modal-card-foot is-primary">
@@ -79,6 +89,7 @@
       </footer>
     </div>
   </div>
+
   <section class="hero is-fullheight has-background" id="seccionprincipal">
     <div class="hero-body">
       <div class="container">
@@ -268,7 +279,8 @@
       </div>
     </div>
   </footer>
+<script src="./Javascripts/aparicion.js"></script>
 </body>
 </html>
-<script src="Javascripts/registrarse.js" defer></script>
-<script src="Javascripts/scriptCarrusel.js" defer></script>
+<script src="./Javascripts/registrarse.js" defer></script>
+<script src="./Javascripts/scriptCarrusel.js" defer></script>
