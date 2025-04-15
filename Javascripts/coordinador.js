@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Menú hamburguesa
   const $navbarBurgers = Array.from(document.querySelectorAll('.navbar-burger'));
   $navbarBurgers.forEach(el => {
     el.addEventListener('click', () => {
@@ -11,36 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 document.addEventListener('DOMContentLoaded', () => {
-  // Seleccionamos todas las filas de las tablas
   const filas = document.querySelectorAll("table tbody tr");
-
-  // Iteramos sobre cada fila para añadir eventos a los botones de Editar y Eliminar
   filas.forEach(row => {
     const editarBtn = row.querySelector(".button.is-info");
     const eliminarBtn = row.querySelector(".button.is-danger");
-
-    // Evento para eliminar la fila
     eliminarBtn.addEventListener("click", () => {
-      row.remove();  // Elimina la fila
+      row.remove();
     });
-
-    // Evento para editar la fila
     editarBtn.addEventListener("click", () => {
       const celdas = row.querySelectorAll("td");
-      const esEdicion = editarBtn.textContent === "Guardar";  // Comprobamos si estamos en modo edición
-
-      // Iteramos sobre las celdas (excluyendo la foto y las acciones)
+      const esEdicion = editarBtn.textContent === "Guardar"; 
       for (let i = 1; i < celdas.length - 1; i++) {
         if (!esEdicion) {
-          const texto = celdas[i].textContent;  // Obtenemos el texto actual de la celda
-          celdas[i].innerHTML = `<input type="text" value="${texto}">`;  // Convertimos el texto en un campo de texto
+          const texto = celdas[i].textContent; 
+          celdas[i].innerHTML = `<input type="text" value="${texto}">`;
         } else {
-          const input = celdas[i].querySelector("input");  // Buscamos el campo de texto
-          celdas[i].textContent = input.value;  // Actualizamos el texto de la celda con el valor del campo de texto
+          const input = celdas[i].querySelector("input");
+          celdas[i].textContent = input.value; 
         }
       }
-
-      // Cambiar el texto del botón entre "Editar" y "Guardar"
       editarBtn.textContent = esEdicion ? "Editar" : "Guardar";
     });
   });
@@ -48,14 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Referencias a los elementos del DOM
   const filterForm = document.querySelector('.filtroForm');
   const filterButton = filterForm.querySelector('button[type="button"]');
   const tagsContainer = document.querySelector('#voluntarios .tags');
   const volunteerTable = document.querySelector('#voluntarios table tbody');
   const originalVolunteers = Array.from(volunteerTable.querySelectorAll('tr'));
-  
-  // Datos de ejemplo (en un caso real, estos vendrían de una API)
   const volunteersData = originalVolunteers.map(row => {
     const cells = row.querySelectorAll('td');
     return {
