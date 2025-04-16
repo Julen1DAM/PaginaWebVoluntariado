@@ -222,6 +222,7 @@
                   <td>
                     <div class="buttons">
                       <a class="button is-small is-info">Editar</a>
+                      <a class="button is-small is-warning btn-historial" data-voluntario="Juan Pérez">Historial</a>
                       <a class="button is-small is-danger">Eliminar</a>
                     </div>
                   </td>
@@ -242,6 +243,7 @@
                   <td>
                     <div class="buttons">
                       <a class="button is-small is-info">Editar</a>
+                      <a class="button is-small is-warning btn-historial" data-voluntario="María Gómez">Historial</a>
                       <a class="button is-small is-danger">Eliminar</a>
                     </div>
                   </td>
@@ -328,11 +330,11 @@
           <button class="delete is-small"></button>
         </span>
         <span class="tag is-info">
-          Empresa: Supermercado La Esperanza
+            Organización: Supermercado La Esperanza
           <button class="delete is-small"></button>
         </span>
         <span class="tag is-info">
-          Lugar: Pamplona
+          Organización: Pamplona
           <button class="delete is-small"></button>
         </span>
         <span class="tag is-info">
@@ -374,7 +376,7 @@
       
           <div class="column is-6">
             <div class="field">
-              <label class="label">Empresa</label>
+              <label class="label">Organización</label>
               <div class="control">
                 <input class="input is-small" type="text" name="empresa" placeholder="Nombre de la empresa">
               </div>
@@ -438,10 +440,11 @@
                 <th>Foto</th>
                 <th>Descripción</th>
                 <th>Fechas</th>
-                <th>Empresa</th>
+                <th>Organización</th>
                 <th>Lugar</th>
                 <th>Tipo de Voluntariado</th>
                 <th>ODS</th>
+                <th>Estado</th>
                 <th>Voluntarios Inscritos</th>
                 <th>Acciones</th>
               </tr>
@@ -460,6 +463,9 @@
                   31001 Pamplona, Navarra</td>
                 <td>Social</td>
                 <td>ODS 1, ODS 2</td>
+                <td>
+                  <span class="tag is-success">Activa</span>
+                </td>
                 <td>
                   <ul>
                     <li>María Gómez</li>
@@ -488,6 +494,9 @@
                 <td>Ambiental</td>
                 <td>ODS 14</td>
                 <td>
+                  <span class="tag is-warning">Pendiente</span>
+                </td>
+                <td>
                   <ul>
                     <li>Juan Pérez</li>
                     <li>Ana Ruiz</li>
@@ -514,6 +523,9 @@
                 <td>Educativo</td>
                 <td>ODS 4, ODS 8</td>
                 <td>
+                  <span class="tag is-danger">Inactiva</span>
+                </td>
+                <td>
                   <ul>
                     <li>Carlos López</li>
                     <li>María Gómez</li>
@@ -539,6 +551,9 @@
                   31500 Tudela, Navarra</td>
                 <td>Salud</td>
                 <td>ODS 3</td>
+                <td>
+                  <span class="tag is-success">Activa</span>
+                </td>
                 <td>
                   <ul>
                     <li>Ana Ruiz</li>
@@ -610,7 +625,7 @@
           <!-- Empresa -->
           <div class="column is-6">
             <div class="field">
-              <label class="label">Empresa</label>
+              <label class="label">Organización</label>
               <div class="control has-icons-left">
                 <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa" id="empresaActividad">
                 <span class="icon is-small is-left">
@@ -663,8 +678,6 @@
               </div>
             </div>
           </div>
-
-          <!-- ODS -->
           <div class="column is-6">
             <div class="field">
               <label class="label">ODS</label>
@@ -707,7 +720,94 @@
     </footer>
   </div>
 </div>
+<!-- Modal para historial de voluntario -->
+<div class="modal" id="modalHistorial">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Historial de Actividades</p>
+      <button class="delete" aria-label="close" id="cerrarModalHistorial"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="content">
+        <h4 id="nombreVoluntarioHistorial">Juan Pérez</h4>
+        <div class="table-container">
+          <table class="table is-fullwidth is-hoverable">
+            <thead>
+              <tr>
+                <th>Actividad</th>
+                <th>Fecha</th>
+                <th>Organización</th>
+                <th>Horas</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tablaHistorial">
+              <!-- Datos del historial se cargarán aquí -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" id="cerrarModalHistorialBtn">Cerrar</button>
+    </footer>
+  </div>
+</div>
+</body>
+<script>
+  // Abrir modal de historial
+  document.querySelectorAll('.btn-historial').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const nombreVoluntario = this.getAttribute('data-voluntario');
+      document.getElementById('nombreVoluntarioHistorial').textContent = `Historial de ${nombreVoluntario}`;
+      
+      // Aquí podrías hacer una llamada AJAX para obtener los datos reales del historial
+      // Por ahora usaremos datos de ejemplo
+      const datosHistorial = {
+        "Juan Pérez": [
+          { actividad: "Recolección de alimentos", fecha: "2023-10-15", organizacion: "Banco de Alimentos", horas: 4, estado: "Completado" },
+          { actividad: "Taller educativo", fecha: "2023-09-20", organizacion: "Escuela Primaria", horas: 3, estado: "Completado" },
+          { actividad: "Limpieza de parque", fecha: "2023-11-05", organizacion: "Ayuntamiento", horas: 5, estado: "Completado" }
+        ],
+        "María Gómez": [
+          { actividad: "Apoyo escolar", fecha: "2023-10-10", organizacion: "Centro Comunitario", horas: 6, estado: "Completado" },
+          { actividad: "Evento benéfico", fecha: "2023-11-15", organizacion: "Cruz Roja", horas: 8, estado: "Completado" }
+        ],
+        // Agrega más datos según sea necesario
+      };
+
+      const tabla = document.getElementById('tablaHistorial');
+      tabla.innerHTML = ''; // Limpiar tabla
+      
+      if (datosHistorial[nombreVoluntario]) {
+        datosHistorial[nombreVoluntario].forEach(item => {
+          const fila = document.createElement('tr');
+          fila.innerHTML = `
+            <td>${item.actividad}</td>
+            <td>${item.fecha}</td>
+            <td>${item.organizacion}</td>
+            <td>${item.horas}</td>
+            <td><span class="tag is-success">${item.estado}</span></td>
+          `;
+          tabla.appendChild(fila);
+        });
+      } else {
+        tabla.innerHTML = '<tr><td colspan="5" class="has-text-centered">No hay actividades registradas</td></tr>';
+      }
+
+      document.getElementById('modalHistorial').classList.add('is-active');
+    });
+  });
+
+  // Cerrar modal de historial
+  document.getElementById('cerrarModalHistorial').addEventListener('click', cerrarModalHistorial);
+  document.getElementById('cerrarModalHistorialBtn').addEventListener('click', cerrarModalHistorial);
+  
+  function cerrarModalHistorial() {
+    document.getElementById('modalHistorial').classList.remove('is-active');
+  }
+</script>
 <script src="./Javascripts/coordinador.js"></script>
 <script src="./Javascripts/formAnadirEvento.js"></script>
-</body>
 </html>

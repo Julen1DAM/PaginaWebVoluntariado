@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const tagsContainer = document.querySelector('#voluntarios .tags');
   const volunteerTable = document.querySelector('#voluntarios table tbody');
   const originalVolunteers = Array.from(volunteerTable.querySelectorAll('tr'));
+
   const volunteersData = originalVolunteers.map(row => {
     const cells = row.querySelectorAll('td');
     return {
@@ -258,7 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
       lugar: lugarInput.value,
       tipo: tipoVoluntariadoSelect.value,
       ods: odsSeleccionados.join(', '),
-      voluntarios: [] // Inicialmente sin voluntarios
+      voluntarios: [],// Inicialmente sin voluntarios
+      estado: 'Pendiente' // Estado inicial de la actividad
     };
     
     // Añadir la actividad a la tabla
@@ -326,6 +328,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <td>${actividad.lugar}</td>
       <td>${actividad.tipo}</td>
       <td>${actividad.ods}</td>
+       <td><td>
+        <span class="tag is-warning">${actividad.estado}</span>
+      </td></td>
       <td>${listaVoluntarios}</td>
       <td>
         <div class="buttons">
@@ -357,3 +362,54 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('is-active');
   });
 });
+  // Abrir modal de historial
+  document.querySelectorAll('.btn-historial').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const nombreVoluntario = this.getAttribute('data-voluntario');
+      document.getElementById('nombreVoluntarioHistorial').textContent = `Historial de ${nombreVoluntario}`;
+      
+      // Aquí podrías hacer una llamada AJAX para obtener los datos reales del historial
+      // Por ahora usaremos datos de ejemplo
+      const datosHistorial = {
+        "Juan Pérez": [
+          { actividad: "Recolección de alimentos", fecha: "2023-10-15", organizacion: "Banco de Alimentos", horas: 4, estado: "Completado" },
+          { actividad: "Taller educativo", fecha: "2023-09-20", organizacion: "Escuela Primaria", horas: 3, estado: "Completado" },
+          { actividad: "Limpieza de parque", fecha: "2023-11-05", organizacion: "Ayuntamiento", horas: 5, estado: "Completado" }
+        ],
+        "María Gómez": [
+          { actividad: "Apoyo escolar", fecha: "2023-10-10", organizacion: "Centro Comunitario", horas: 6, estado: "Completado" },
+          { actividad: "Evento benéfico", fecha: "2023-11-15", organizacion: "Cruz Roja", horas: 8, estado: "Completado" }
+        ],
+        // Agrega más datos según sea necesario
+      };
+
+      const tabla = document.getElementById('tablaHistorial');
+      tabla.innerHTML = ''; // Limpiar tabla
+      
+      if (datosHistorial[nombreVoluntario]) {
+        datosHistorial[nombreVoluntario].forEach(item => {
+          const fila = document.createElement('tr');
+          fila.innerHTML = `
+            <td>${item.actividad}</td>
+            <td>${item.fecha}</td>
+            <td>${item.organizacion}</td>
+            <td>${item.horas}</td>
+            <td><span class="tag is-success">${item.estado}</span></td>
+          `;
+          tabla.appendChild(fila);
+        });
+      } else {
+        tabla.innerHTML = '<tr><td colspan="5" class="has-text-centered">No hay actividades registradas</td></tr>';
+      }
+
+      document.getElementById('modalHistorial').classList.add('is-active');
+    });
+  });
+
+  // Cerrar modal de historial
+  document.getElementById('cerrarModalHistorial').addEventListener('click', cerrarModalHistorial);
+  document.getElementById('cerrarModalHistorialBtn').addEventListener('click', cerrarModalHistorial);
+  
+  function cerrarModalHistorial() {
+    document.getElementById('modalHistorial').classList.remove('is-active');
+  }

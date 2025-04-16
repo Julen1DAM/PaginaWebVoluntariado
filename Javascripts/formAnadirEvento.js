@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         empresa.focus();
         return;
       }
-
       // Validar lugar
       if (!lugar.value.trim()) {
         e.preventDefault();
