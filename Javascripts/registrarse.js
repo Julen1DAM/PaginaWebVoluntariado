@@ -1,6 +1,6 @@
 const btnEntrar = document.getElementById('btnEntrar')
 const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
+const passwordInput = document.getElementById("contra");
 const error = document.getElementById("error");
 function iniciarSesion() {
     const usuario = usernameInput.value;
