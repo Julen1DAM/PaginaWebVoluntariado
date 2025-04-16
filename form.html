@@ -129,7 +129,7 @@
                     </div>
                     <p id="fileName" class="help"></p>
                 </div>
-                <script src="Javascripts/fotoperfil.js"></script>
+                <script src="Javascripts/formVoluntario.js"></script>
                 <div class="field">
                     <label class="label">¿Cuántas horas semanales podrías emplear?</label>
                     <div class="control">
@@ -208,58 +208,62 @@
                     <label class="label">¿Has participado en algún voluntariado antes?</label>
                     <div class="control">
                         <label class="radio">
-                            <input type="radio" name="answer" value="si"> Sí
+                            <input type="radio" name="answer" value="si" onclick="toggleVoluntariadoFields()"> Sí
                         </label>
                         <label class="radio ml-2">
-                            <input type="radio" name="answer" value="no"> No
+                            <input type="radio" name="answer" value="no" onclick="toggleVoluntariadoFields()"> No
                         </label>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label class="label" for="asociacion">¿En qué asociación/es has realizado voluntariado?</label>
-                    <div class="control">
-                        <textarea class="textarea is-small" id="asociacion" placeholder="Cuéntanos..."></textarea>
+                <div id="voluntariadoFields">
+                    <div class="field">
+                        <label class="label" for="asociacion">¿En qué asociación/es has realizado voluntariado?</label>
+                        <div class="control">
+                            <textarea class="textarea is-small" id="asociacion" placeholder="Cuéntanos..."></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label" for="acciones">¿Qué acciones realizabas?</label>
-                    <div class="control">
-                        <textarea class="textarea is-small" id="acciones" placeholder="Cuéntanos..."></textarea>
+                    <div class="field">
+                        <label class="label" for="acciones">¿Qué acciones realizabas?</label>
+                        <div class="control">
+                            <textarea class="textarea is-small" id="acciones" placeholder="Cuéntanos..."></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
-                    <div class="checkboxes">
-                        <label class="checkbox">
-                            <input type="checkbox" value="social"> Social
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="ambiental"> Ambiental
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="educativo"> Educativo
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="cultural"> Cultural
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="deportivo"> Deportivo
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="salud"> Salud
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="digital"> Digital
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value="tecnico"> Técnico
-                        </label>
+                    <div class="field">
+                        <label class="label">¿Cuál es tu tipo de voluntariado ideal?</label>
+                        <div class="checkboxes">
+                            <label class="checkbox">
+                                <input type="checkbox" value="social"> Social
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="ambiental"> Ambiental
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="educativo"> Educativo
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="cultural"> Cultural
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="deportivo"> Deportivo
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="salud"> Salud
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="digital"> Digital
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="tecnico"> Técnico
+                            </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <script src="Javascripts/formVoluntario.js"></script>
         </div>
     </form>
 </body>

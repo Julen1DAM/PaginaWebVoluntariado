@@ -15,7 +15,7 @@ function iniciarSesion() {
             }
             break;
         case "Juan":
-            if (contrasena === "1234") {
+            if (contrasena === "123456") {
                 window.location.href = "usuario.html";
             } else {
                 error.innerHTML = "Contraseña incorrecta.";

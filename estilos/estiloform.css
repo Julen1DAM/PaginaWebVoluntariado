@@ -68,3 +68,6 @@ input[type="radio"]:checked::after {
     height: 10px;
     border-radius: 2px; 
 }
+#voluntariadoFields{
+    display: none;
+}
