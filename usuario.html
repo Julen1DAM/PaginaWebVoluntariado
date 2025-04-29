@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voluntariado</title>
-  <link rel="stylesheet" type="text/css" href="./estilos/estiloUsuario.css">
-  <link rel="stylesheet" type="text/css" href="./estilos/bulma.css">
-  <link rel="stylesheet" type="text/css" href="./estilos/estilos.css">
+  <link rel="stylesheet" href="./estilos/estiloUsuario.css">
+  <link rel="stylesheet" href="./estilos/bulma.css">
+  <link rel="stylesheet" href="./estilos/estilos.css">
+  <script src="https://kit.fontawesome.com/a2e0e9f2c1.js" crossorigin="anonymous"></script> <!-- Asegura los íconos -->
 </head>
 
 <body>
@@ -22,6 +23,7 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
+
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
@@ -32,8 +34,6 @@
             <span>Usuario</span>
           </a>
           <div class="navbar-dropdown is-right">
-            <a class="navbar-item" href="#">Perfil</a>
-            <hr class="navbar-divider">
             <a class="navbar-item has-text-danger" href="./index.html">Cerrar sesión</a>
           </div>
         </div>
@@ -41,116 +41,117 @@
     </div>
   </nav>
 
-  <section class="section">
+  <section class="section" style="padding-top: 5rem;">
     <div id="queHacemos" class="container">
       <h1 class="title has-text-centered">VOLUNTARIADOS</h1>
-      <div class="columns is-multiline">
-        <div class="column is-one-third">
-          <div class="card is-flex is-flex-direction-column">
+      <div class="columns is-multiline is-variable is-6">
+        
+        <!-- Card 1 -->
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+          <div class="card h-100">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="Imagenes/SOLERATallerDigitalizacion.png" alt="Taller de digitalización">
               </figure>
             </div>
-            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
-              <div style="flex-grow: 1;">
-                <p class="title">Taller de digitalización</p>
-                <p class="subtitle">Centro de día SOLERA</p>
-              </div>
-              <div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5">Taller de digitalización</p>
+                <p class="subtitle is-6">Centro de día SOLERA</p>
                 <p><strong>Fecha inicio: 21 de octubre de 2024</strong></p>
                 <p>Taller para enseñar nuevos recursos digitales a personas mayores.</p>
-                <button class="button inscribirse-btn" data-event="Taller de digitalización">Inscribirse</button>
               </div>
+              <button class="button is-primary is-fullwidth mt-3 inscribirse-btn" data-event="Taller de digitalización">Inscribirse</button>
             </div>
           </div>
         </div>
-        <div class="column is-two-third">
-          <div class="card is-flex is-flex-direction-column">
+
+        <!-- Card 2 -->
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+          <div class="card h-100">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="Imagenes/AMAVIRActividadesLudicas.jpg" alt="Actividades lúdicas">
               </figure>
             </div>
-            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
-              <div style="flex-grow: 1;">
-                <p class="title">Actividades lúdicas</p>
-                <p class="subtitle">Residencia Amavir-oblatas</p>
-              </div>
-              <div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5">Actividades lúdicas</p>
+                <p class="subtitle is-6">Residencia Amavir-oblatas</p>
                 <p><strong>Fecha inicio: 6 de noviembre de 2024</strong></p>
                 <p>Para promover la actividad física y bienestar de las personas mayores</p>
-                <button class="button inscribirse-btn" data-event="Actividades lúdicas">Inscribirse</button>
               </div>
+              <button class="button is-primary is-fullwidth mt-3 inscribirse-btn" data-event="Actividades lúdicas">Inscribirse</button>
             </div>
           </div>
         </div>
-        <div class="column is-one-third">
-          <div class="card is-flex is-flex-direction-column">
+
+        <!-- Card 3 -->
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+          <div class="card h-100">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="Imagenes/UNZUTXIKIAlimentos.jpg" alt="Distribución de alimentos y productos de higiene">
               </figure>
             </div>
-            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
-              <div style="flex-grow: 1;">
-                <p class="title">Distribución de alimentos y productos de higiene</p>
-                <p class="subtitle">Unzutxiki</p>
-              </div>
-              <div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5">Distribución de alimentos y productos de higiene</p>
+                <p class="subtitle is-6">Unzutxiki</p>
                 <p><strong>Fecha inicio: 28 de octubre de 2024</strong></p>
                 <p>Se recogen alimentos y productos de higiene para familias necesitadas de la comunidad.</p>
-                <button class="button inscribirse-btn" data-event="Distribución de alimentos y productos de higiene">Inscribirse</button>
               </div>
+              <button class="button is-primary is-fullwidth mt-3 inscribirse-btn" data-event="Distribución de alimentos y productos de higiene">Inscribirse</button>
             </div>
           </div>
         </div>
-        <div class="column is-one-third">
-          <div class="card is-flex is-flex-direction-column">
+
+        <!-- Card 4 -->
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+          <div class="card h-100">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="Imagenes/ANFASTallerDigitalizacion.png" alt="Taller competencias digitales">
               </figure>
             </div>
-            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
-              <div style="flex-grow: 1;">
-                <p class="title">Taller competencias digitales</p>
-                <p class="subtitle">Asociación ANFAS sangüesa</p>
-              </div>
-              <div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5">Taller competencias digitales</p>
+                <p class="subtitle is-6">Asociación ANFAS sangüesa</p>
                 <p><strong>Fecha inicio: no info</strong></p>
                 <p>Los participantes aprenden herramientas digitales básicas gracias a los cibervoluntarios.</p>
-                <button class="button inscribirse-btn" data-event="Taller competencias digitales">Inscribirse</button>
               </div>
+              <button class="button is-primary is-fullwidth mt-3 inscribirse-btn" data-event="Taller competencias digitales">Inscribirse</button>
             </div>
           </div>
         </div>
-        <div class="column is-one-third">
-          <div class="card is-flex is-flex-direction-column">
+
+        <!-- Card 5 -->
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+          <div class="card h-100">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="Imagenes/AECCCharlaContraCancer.png" alt="Charla de prevención Cáncer">
               </figure>
             </div>
-            <div class="card-content is-flex is-flex-direction-column" style="flex: 1;">
-              <div style="flex-grow: 1;">
-                <p class="title">Charla de prevención Cáncer</p>
-                <p class="subtitle">Asociación Española Contra el Cáncer (AECC)</p>
-              </div>
-              <div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5">Charla de prevención Cáncer</p>
+                <p class="subtitle is-6">Asociación Española Contra el Cáncer (AECC)</p>
                 <p><strong>Fecha inicio: no info</strong></p>
-                <p>Charla para conocer el trabajo de la AECC y fomentar la prevención para el alumnado de Cuatrovientos.
-                </p>
-                <button class="button inscribirse-btn" data-event="Charla de prevención Cáncer">Inscribirse</button>
+                <p>Charla para conocer el trabajo de la AECC y fomentar la prevención para el alumnado de Cuatrovientos.</p>
               </div>
+              <button class="button is-primary is-fullwidth mt-3 inscribirse-btn" data-event="Charla de prevención Cáncer">Inscribirse</button>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <script src="./Javascripts/scripInscribirse.js"></script>
+
 </body>
 
 </html>
-<script src="./Javascripts/scripInscribirse.js"></script>
-  
