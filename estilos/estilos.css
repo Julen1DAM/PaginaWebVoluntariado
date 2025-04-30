@@ -11,9 +11,6 @@
   --bulma-success-s: 29%;
   --bulma-success-l: 60%;
 }
-body {
-  font-family: 'Poppins', sans-serif;
-}
 .button.is-medium.is-rounded {
   white-space: normal;
   word-break: break-word; 

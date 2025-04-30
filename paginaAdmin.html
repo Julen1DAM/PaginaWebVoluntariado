@@ -345,11 +345,22 @@
       <form class="box filtroFormEventos">
         <h4 class="title is-5">Filtrar Actividades</h4>
         <div class="columns is-multiline">
+          <!-- Nuevo campo Título -->
+          <div class="column is-12">
+            <div class="field">
+              <label class="label">Título del Evento</label>
+              <div class="control">
+                <input class="input is-small" type="text" name="titulo" placeholder="Nombre de la actividad">
+              </div>
+            </div>
+          </div>
+      
+          <!-- Campos existentes modificados -->
           <div class="column is-6">
             <div class="field">
-              <label class="label">Fechas</label>
+              <label class="label">Fecha y Hora</label>
               <div class="control">
-                <input class="input is-small" type="date" name="fecha">
+                <input class="input is-small" type="datetime-local" name="fecha">
               </div>
             </div>
           </div>
@@ -383,6 +394,16 @@
             </div>
           </div>
       
+          <!-- Nuevo campo Número de Voluntarios -->
+          <div class="column is-6">
+            <div class="field">
+              <label class="label">Voluntarios Requeridos</label>
+              <div class="control">
+                <input class="input is-small" type="number" name="num_voluntarios" min="1" placeholder="Cantidad necesaria">
+              </div>
+            </div>
+          </div>
+      
           <div class="column is-6">
             <div class="field">
               <label class="label">Lugar</label>
@@ -392,6 +413,7 @@
             </div>
           </div>
       
+          <!-- Selector ODS existente -->
           <div class="column is-12">
             <div class="field">
               <label class="label">Filtrar por ODS</label>
@@ -430,7 +452,6 @@
           </div>
         </div>
       </form>
-
       <div class="box">
         <h3 class="title is-4">Actividades</h3>
         <div class="table-container">
@@ -799,7 +820,6 @@
       document.getElementById('modalHistorial').classList.add('is-active');
     });
   });
-
   // Cerrar modal de historial
   document.getElementById('cerrarModalHistorial').addEventListener('click', cerrarModalHistorial);
   document.getElementById('cerrarModalHistorialBtn').addEventListener('click', cerrarModalHistorial);

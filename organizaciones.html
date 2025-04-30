@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Organización - Voluntariado</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+  <style>
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.125rem;
+      margin: 1rem 0;
+    }
+    .calendar-day {
+      border: 1px solid #eee;
+      min-height: 6rem;
+      padding: 0.5rem;
+      background: white;
+    }
+    .calendar-event {
+      background: hsl(171, 100%, 41%);
+      color: white;
+      padding: 0.25em 0.5em;
+      border-radius: 3px;
+      margin: 0.125rem 0;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .modal-card { max-width: 600px; }
+    .ods-tag {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar-item, .navbar-link {
+      color: #333 !important;
+    }
+    .navbar-item.has-dropdown:hover .navbar-link, .navbar-item:hover {
+      background-color: #f5f5f5 !important;
+    }
+    .navbar-burger span {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar is-fixed-top" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cuatrovientos.org" target="_blank">
+        <img class="imgNav" src="./Imagenes/LOGOVoluntariado.png" alt="Logo Voluntariado">                  
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" data-target="navbarMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="#calendario" class="navbar-item">Calendario</a>
+        <a href="#actividades" class="navbar-item">Actividades</a>
+        <a href="#historial" class="navbar-item">Historial</a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <span class="icon"><i class="fas fa-building"></i></span>
+            <span>Banco de Alimentos</span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item">Perfil</a>
+            <a class="navbar-item">Configuración</a>
+            <hr class="navbar-divider">
+            <a class="navbar-item has-text-danger" href="#">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Panel Organizacion</h1>
+      <h2 class="subtitle has-text-centered">Voluntariado Cuatrovientos</h2>
+      <!-- Calendario Abril 2025 -->
+      <div class="box" id="calendario">
+        <h3 class="title is-4">Calendario Abril 2025</h3>
+        <div class="calendar">
+          <div class="calendar-day has-background-light"><strong>Lun</strong></div>
+          <div class="calendar-day has-background-light"><strong>Mar</strong></div>
+          <div class="calendar-day has-background-light"><strong>Mié</strong></div>
+          <div class="calendar-day has-background-light"><strong>Jue</strong></div>
+          <div class="calendar-day has-background-light"><strong>Vie</strong></div>
+          <div class="calendar-day has-background-light"><strong>Sáb</strong></div>
+          <div class="calendar-day has-background-light"><strong>Dom</strong></div>
+
+          <!-- Días -->
+          <div class="calendar-day"></div> <!-- 31 Mar -->
+          <div class="calendar-day">1</div>
+          <div class="calendar-day">2</div>
+          <div class="calendar-day">3</div>
+          <div class="calendar-day">4</div>
+          <div class="calendar-day">5</div>
+          <div class="calendar-day">6</div>
+
+          <div class="calendar-day">7<div class="calendar-event">Entrevistas Voluntarios</div></div>
+          <div class="calendar-day">8</div>
+          <div class="calendar-day">9</div>
+          <div class="calendar-day">10</div>
+          <div class="calendar-day">11</div>
+          <div class="calendar-day">12</div>
+          <div class="calendar-day">13</div>
+
+          <div class="calendar-day">14</div>
+          <div class="calendar-day">15<div class="calendar-event">Taller Capacitación</div></div>
+          <div class="calendar-day">16</div>
+          <div class="calendar-day">17</div>
+          <div class="calendar-day">18</div>
+          <div class="calendar-day">19</div>
+          <div class="calendar-day">20<div class="calendar-event">Distribución alimentos</div></div>
+
+          <div class="calendar-day">21</div>
+          <div class="calendar-day">22<div class="calendar-event">Reunión coordinación</div></div>
+          <div class="calendar-day">23</div>
+          <div class="calendar-day">24</div>
+          <div class="calendar-day">25</div>
+          <div class="calendar-day">26</div>
+          <div class="calendar-day">27</div>
+
+          <div class="calendar-day">28<div class="calendar-event">Campaña donaciones</div></div>
+          <div class="calendar-day">29</div>
+          <div class="calendar-day">30</div>
+          <div class="calendar-day"></div>
+          <div class="calendar-day"></div>
+          <div class="calendar-day"></div>
+          <div class="calendar-day"></div>
+        </div>
+      </div>
+
+      <!-- Actividades Activas -->
+      <div class="box" id="actividades">
+        <div class="level">
+          <div class="level-left">
+            <h3 class="title is-4">Actividades Activas</h3>
+          </div>
+          <div class="level-right">
+            <button class="button is-primary" id="btnNuevaActividad">
+              <span class="icon"><i class="fas fa-plus"></i></span>
+              <span>Nueva Actividad</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table class="table is-fullwidth is-hoverable">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Fechas</th>
+                <th>Voluntarios</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p class="has-text-weight-bold">Recolección alimentos</p>
+                  <p class="has-text-grey is-size-7">Supermercados Pamplona</p>
+                </td>
+                <td>7-9 Abr</td>
+                <td>
+                  <progress class="progress is-small is-primary" value="8" max="10">80%</progress>
+                  <span>8/10</span>
+                </td>
+                <td><span class="tag is-success is-rounded">Activa</span></td>
+                <td>
+                  <div class="buttons are-small">
+                    <button class="button is-info is-outlined"><i class="fas fa-edit"></i></button>
+                    <button class="button is-warning is-outlined"><i class="fas fa-users"></i></button>
+                    <button class="button is-danger is-outlined"><i class="fas fa-times"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="has-text-weight-bold">Taller capacitación</p>
+                  <p class="has-text-grey is-size-7">Sede central</p>
+                </td>
+                <td>15 Abr</td>
+                <td>
+                  <progress class="progress is-small is-primary" value="12" max="15">80%</progress>
+                  <span>12/15</span>
+                </td>
+                <td><span class="tag is-warning is-rounded">Próxima</span></td>
+                <td>
+                  <div class="buttons are-small">
+                    <button class="button is-info is-outlined"><i class="fas fa-edit"></i></button>
+                    <button class="button is-warning is-outlined"><i class="fas fa-users"></i></button>
+                    <button class="button is-danger is-outlined"><i class="fas fa-times"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Historial -->
+      <div class="box" id="historial">
+        <h3 class="title is-4">Historial</h3>
+        
+        <div class="notification is-info is-light mb-3">
+          <div class="columns is-vcentered">
+            <div class="column">
+              <strong>Campaña navideña 2024</strong><br>
+              <small>15 Dic 2024 | 18 voluntarios | 72 horas</small>
+            </div>
+            <div class="column has-text-right">
+              <span class="tag is-primary">ODS 1</span>
+              <span class="tag is-link">ODS 2</span>
+            </div>
+            <div class="column is-narrow">
+              <button class="button is-small btn-info"><i class="fas fa-info-circle"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="notification is-success is-light mb-3">
+          <div class="columns is-vcentered">
+            <div class="column">
+              <strong>Campaña primavera 2024</strong><br>
+              <small>20 Mar 2024 | 25 voluntarios | 100 horas</small>
+            </div>
+            <div class="column has-text-right">
+              <span class="tag is-info">ODS 3</span>
+              <span class="tag is-warning">ODS 12</span>
+            </div>
+            <div class="column is-narrow">
+              <button class="button is-small btn-info"><i class="fas fa-info-circle"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Nueva Actividad -->
+  <div class="modal" id="modalActividad">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head has-background-primary">
+        <p class="modal-card-title has-text-white">Nueva Actividad</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Título de la actividad</label>
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="Ej: Recolección navideña" required>
+            <span class="icon is-small is-left"><i class="fas fa-heading"></i></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Fechas y horarios</label>
+          <div class="control">
+            <textarea class="textarea" 
+                      placeholder="Formato libre. Ejemplos:
+- 25 y 30 Diciembre 2025 (10:00-14:00)
+- Todos los martes de enero (16:00-18:00)
+- 1, 8 y 15 Febrero (todo el día)"
+                      rows="3"
+                      required></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Descripción detallada</label>
+          <div class="control">
+            <textarea class="textarea" rows="2" placeholder="Detalla las tareas a realizar, requisitos, etc..." required></textarea>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Tipo de actividad</label>
+              <div class="control has-icons-left">
+                <div class="select is-fullwidth">
+                  <select required>
+                    <option value="">Selecciona...</option>
+                    <option>Recolección</option>
+                    <option>Clasificación</option>
+                    <option>Distribución</option>
+                    <option>Evento especial</option>
+                    <option>Administrativo</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left"><i class="fas fa-tasks"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="field">
+              <label class="label">Número de voluntarios</label>
+              <div class="control has-icons-left">
+                <input class="input" type="number" min="1" value="5" required>
+                <span class="icon is-small is-left"><i class="fas fa-user-friends"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">ODS relacionados (Máximo 4)</label>
+          <div class="control">
+            <div class="columns is-multiline is-variable is-1">
+              <div class="column is-3">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-primary">1</span> Fin de la pobreza
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-link">2</span> Hambre cero
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-info">3</span> Salud
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-success">4</span> Educación
+                </label>
+              </div>
+              <div class="column is-3">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-danger">5</span> Igualdad
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-warning">6</span> Agua limpia
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-dark">7</span> Energía
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-primary">8</span> Trabajo
+                </label>
+              </div>
+              <div class="column is-3">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-link">9</span> Innovación
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-info">10</span> Desigualdad
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-success">11</span> Ciudades
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-danger">12</span> Producción
+                </label>
+              </div>
+              <div class="column is-3">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-warning">13</span> Clima
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-dark">14</span> Vida marina
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-primary">15</span> Ecosistemas
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-link">16</span> Paz
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ods-tag has-background-info">17</span> Alianzas
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <footer class="modal-card-foot">
+        <button class="button is-success">Crear Actividad</button>
+        <button class="button cancel">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal Detalles Actividad -->
+  <div class="modal" id="modalDetallesActividad">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head has-background-info">
+        <p class="modal-card-title has-text-white">Detalles de Actividad</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      
+      <section class="modal-card-body">
+        <div class="content">
+          <h3 class="title is-4">Campaña navideña 2024</h3>
+          
+          <div class="columns">
+            <div class="column">
+              <p class="has-text-weight-semibold">Fecha:</p>
+              <p>15 Diciembre 2024</p>
+              
+              <p class="has-text-weight-semibold mt-3">Horario:</p>
+              <p>10:00 - 14:00</p>
+            </div>
+            <div class="column">
+              <p class="has-text-weight-semibold">Voluntarios:</p>
+              <p>18 participantes</p>
+              
+              <p class="has-text-weight-semibold mt-3">Horas totales:</p>
+              <p>72 horas</p>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <span class="tag is-primary">ODS 1</span>
+            <span class="tag is-link">ODS 2</span>
+          </div>
+          
+          <h4 class="subtitle is-5">Descripción:</h4>
+          <p>Campaña especial de recolección y distribución de alimentos para las fiestas navideñas. Los voluntarios participaron en la clasificación de productos y preparación de paquetes para familias necesitadas.</p>
+          
+          <h4 class="subtitle is-5 mt-4">Organización:</h4>
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStScJ63rhVyf8NtHi0g-aWWg2xGSt-hCy3FQ&s" alt="Logo organización">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-6">Banco de Alimentos</p>
+              <p class="subtitle is-7">Valencia, España</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <footer class="modal-card-foot">
+        <button class="button cancel">Cerrar</button>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Menú hamburguesa
+      const navbarBurger = document.querySelector('.navbar-burger');
+      const navbarMenu = document.querySelector('.navbar-menu');
+
+      navbarBurger.addEventListener('click', () => {
+        navbarBurger.classList.toggle('is-active');
+        navbarMenu.classList.toggle('is-active');
+      });
+
+      // Manejo de modales
+      const modals = {
+        nueva: {
+          open: document.getElementById('btnNuevaActividad'),
+          close: document.querySelectorAll('#modalActividad .delete, #modalActividad .cancel'),
+          modal: document.getElementById('modalActividad')
+        },
+        detalles: {
+          open: document.querySelectorAll('.btn-info'),
+          close: document.querySelectorAll('#modalDetallesActividad .delete, #modalDetallesActividad .cancel'),
+          modal: document.getElementById('modalDetallesActividad')
+        }
+      };
+
+      // Funcionalidad para abrir/cerrar modales
+      Object.entries(modals).forEach(([key, { open, close, modal }]) => {
+        if (open) {
+          if (open instanceof NodeList) {
+            open.forEach(btn => btn.addEventListener('click', () => modal.classList.add('is-active')));
+          } else {
+            open.addEventListener('click', () => modal.classList.add('is-active'));
+          }
+        }
+
+        close.forEach(btn => btn.addEventListener('click', () => modal.classList.remove('is-active')));
+      });
+
+      // Cerrar menú al hacer clic en enlaces móviles
+      document.querySelectorAll('.navbar-item').forEach(item => {
+        item.addEventListener('click', () => {
+          navbarBurger.classList.remove('is-active');
+          navbarMenu.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
