@@ -35,7 +35,6 @@ h1 {
 }
 
 button {
-    background-color: green;
     color: white;
     border: none;
     padding: 10px;
@@ -43,9 +42,7 @@ button {
     margin-top: 10px;
     border-radius: 5px;
 }
-button:hover{
-    background-color: green;
-}
+
 button.apuntado {
     background-color: red; /* cambia a rojo al inscribirse */
   }
