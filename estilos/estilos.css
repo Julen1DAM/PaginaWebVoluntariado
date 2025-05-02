@@ -201,64 +201,9 @@ iframe{
 .fade-in.visible {
   opacity: 1;
 }
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.125rem;
-  margin: 1rem 0;
-  overflow-x: auto; /* Para móviles */
+#modal-org .modal-card-body{
+  padding-top:30%;
 }
-
-.calendar-day {
-  min-height: 6rem;
-  border: 1px solid #f5f5f5;
-  background: white;
-  padding: 0.5rem;
-}
-
-.calendar-event {
-  background: hsl(171, 100%, 41%);
-  color: white;
-  border-radius: 3px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  word-break: break-word;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .calendar {
-    grid-template-columns: repeat(7, minmax(100px, 1fr));
-  }
-  
-  .calendar-day {
-    min-height: 4rem;
-    padding: 0.25rem;
-    font-size: 0.875rem;
-  }
-  
-  .calendar-event {
-    font-size: 0.7rem;
-    margin: 0.1rem 0;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .calendar {
-    grid-template-columns: repeat(7, minmax(80px, 1fr));
-  }
-  
-  .calendar-day {
-    min-height: 3.5rem;
-  }
-}
-
-.ods-tag {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: bold;
-  margin-right: 0.5rem;
+#modal-org .modal-card{
+  width: 60%;
 }

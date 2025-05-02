@@ -254,7 +254,7 @@
   <input class="is-invisible" type="checkbox" id="modal-org-toggle">
   <div class="modal" id="modal-org">
     <div class="modal-background"></div>
-    <div class="modal-card ">
+    <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Formulario de Colaboración</p>
         <label for="modal-org-toggle" class="delete" aria-label="close"></label>
@@ -270,25 +270,29 @@
           <div class="field">
             <label class="label">Persona de Contacto</label>
             <div class="control">
-              <input class="input is-expanded" type="text" placeholder="Ej: Juan Pérez" required>
+              <input Id="NomPerOrg" class="input is-expanded" type="text" placeholder="Ej: Juan Pérez" required>
+              <p class="help is-danger" id="errorNomPerOrg">Solo se permiten letras y espacios</p>
             </div>
           </div>
           <div class="field">
             <label class="label">Dirección Postal</label>
             <div class="control">
-              <input class="input is-expanded" type="text" placeholder="Ej: Calle Falsa 123, Pamplona" required>
+              <input Id="CodPosOrg" class="input is-expanded" type="text" placeholder="Ej: Calle Falsa 123, Pamplona" required>
+              <p class="help is-danger" id="errorCodPosOrg">Formato incorrecto</p>
             </div>
           </div>
           <div class="field">
             <label class="label">Correo Electrónico</label>
             <div class="control">
-              <input class="input is-expanded" type="email" placeholder="Ej: contacto@empresa.com" required>
+              <input Id="CorreoOrg" class="input is-expanded" type="email" placeholder="Ej: contacto@empresa.com" required>
+              <p class="help is-danger" id="errorCorreoOrg">Formato incorrecto</p>
             </div>
           </div>
           <div class="field">
             <label class="label">Teléfono</label>
             <div class="control">
-              <input class="input is-expanded" type="tel" placeholder="Ej: 948123456" required>
+              <input Id="TelOrg" class="input is-expanded" type="tel" placeholder="Ej: 948123456" required>
+              <p class="help is-danger" id="errorTelOrg">Formato incorrecto</p>
             </div>
           </div>
           <div class="field">
@@ -299,10 +303,7 @@
           </div>
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" type="submit">Enviar</button>
-            </div>
-            <div class="control">
-              <label for="modal-org-toggle" class="button is-light">Cancelar</label>
+              <button id="botonOrg" class="button is-link" type="submit">Enviar</button>
             </div>
           </div>
         </form>
@@ -338,8 +339,9 @@
       </div>
     </div>
   </footer>
-  <script src="./Javascripts/aparicion.js" defer></script>
+</body>
+<script src="./Javascripts/validacionOrg.js" defer></script>
+<script src="./Javascripts/aparicion.js" defer></script>
 <script src="./Javascripts/registrarse.js" defer></script>
 <script src="./Javascripts/scriptCarrusel.js" defer></script>
-</body>
-</html>
+<script src="./Javascripts/modal.js"></script>
