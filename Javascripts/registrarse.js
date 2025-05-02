@@ -22,6 +22,14 @@ function iniciarSesion() {
                 error.style.color = "red";
             }
             break;
+        case "Amavir":
+            if (contrasena === "organizacion") {
+                window.location.href = "organizaciones.html";
+            } else {
+                error.innerHTML = "Contraseña incorrecta.";
+                error.style.color = "red";
+            }
+            break;
         default:
             error.innerHTML = "Usuario no encontrado.";
             error.style.color = "red";

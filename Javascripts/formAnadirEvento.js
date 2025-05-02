@@ -55,7 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
         tipo.focus();
         return;
       }
-
-      // Si todo está bien, el formulario se envía normalmente
     });
   });
