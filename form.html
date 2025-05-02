@@ -34,6 +34,7 @@
 
     <form id="registroForm" class="container p-6">
         <div class="columns is-multiline">
+            <!-- Columna Datos Personales -->
             <div class="column is-full-mobile is-half-tablet">
                 <h2 class="title">Datos Personales</h2>
 
@@ -129,7 +130,7 @@
                     </div>
                     <p id="fileName" class="help"></p>
                 </div>
-                <script src="Javascripts/formVoluntario.js"></script>
+
                 <div class="field">
                     <label class="label">¿Cuántas horas semanales podrías emplear?</label>
                     <div class="control">
@@ -190,17 +191,9 @@
                         </label>
                     </div>
                 </div>
-
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-link is-fullwidth-mobile" type="submit">Enviar</button>
-                    </div>
-                    <div class="control">
-                        <button class="button is-danger is-fullwidth-mobile" type="reset">Borrar</button>
-                    </div>
-                </div>
             </div>
 
+            <!-- Columna Datos Voluntariado -->
             <div class="column is-full-mobile is-half-tablet">
                 <h2 class="title">Datos de Voluntariado</h2>
 
@@ -258,13 +251,24 @@
                             <label class="checkbox">
                                 <input type="checkbox" value="tecnico"> Técnico
                             </label>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <script src="Javascripts/formVoluntario.js"></script>
+
+            <!-- Botones en columna completa -->
+            <div class="column is-full">
+                <div class="field is-grouped is-grouped-centered-mobile is-grouped-right-tablet">
+                    <div class="control mb-3-mobile">
+                        <button class="button is-link is-fullwidth-mobile" type="submit">Enviar</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-danger is-fullwidth-mobile" type="reset">Borrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
+    <script src="Javascripts/formVoluntario.js"></script>
 </body>
 </html>

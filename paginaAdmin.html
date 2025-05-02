@@ -7,7 +7,9 @@
   <title>Panel Coordinador - Voluntariado</title>
   <link rel="stylesheet" href="./estilos/bulma.css">
   <link rel="stylesheet" href="./estilos/estilos.css">
+  <link rel="icon" type="image/png" href="./Imagenes/LOGOVoluntariado.png">
   <script src="https://kit.fontawesome.com/3e090f7945.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <nav class="navbar is-fixed-top" aria-label="main navigation">
@@ -15,24 +17,25 @@
       <a class="navbar-item" href="https://cuatrovientos.org" target="_blank">
         <img class="imgNav" src="./Imagenes/LOGOVoluntariado.png" alt="Logo Voluntariado">                  
       </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger" aria-label="menu" data-target="navbarMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a> 
+      </a>
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <a href="#voluntarios" class="navbar-item">Voluntarios</a>
-        <a href="#eventos" class="navbar-item">Actividades Voluntariado</a>
+        <a href="#eventos" class="navbar-item">Actividades</a>
+        <a href="#organizaciones" class="navbar-item">Organizaciones</a>
       </div>
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            <span class="icon">
+            <p class="icon">
               <i class="fas fa-user"></i>
-            </span>
-            <span>Coordinador</span>
+            </p>
+            <p>Coordinador</p>
           </a>
           <div class="navbar-dropdown is-right">
             <a class="navbar-item">Perfil</a>
@@ -63,26 +66,26 @@
         </label>
 
         <div class="tags mb-4">
-          <span class="tag is-info">
+          <p class="tag is-info">
             Nombre: Juan Pérez
             <button class="delete is-small"></button>
-          </span>
-          <span class="tag is-info">
+          </p>
+          <p class="tag is-info">
             Disponibilidad: Lunes, Miércoles
             <button class="delete is-small"></button>
-          </span>
-          <span class="tag is-info">
+          </p>
+          <p class="tag is-info">
             Horas: 5
             <button class="delete is-small"></button>
-          </span>
-          <span class="tag is-info">
+          </p>
+          <p class="tag is-info">
             Voluntariado: Social
             <button class="delete is-small"></button>
-          </span>
-          <span class="tag is-info">
+          </p>
+          <p class="tag is-info">
             Curso: 1º DAM
             <button class="delete is-small"></button>
-          </span>
+          </p>
         </div>
 
         <form class="box filtroForm">
@@ -93,9 +96,9 @@
                 <label class="label">Buscar por Nombre</label>
                 <div class="control has-icons-left">
                   <input class="input is-small" type="text" name="nombre" placeholder="Ingresa el nombre del voluntario">
-                  <span class="icon is-small is-left">
+                  <p class="icon is-small is-left">
                     <i class="fas fa-search"></i>
-                  </span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -264,6 +267,7 @@
                   <td>
                     <div class="buttons">
                       <a class="button is-small is-info">Editar</a>
+                      <a class="button is-small is-warning btn-historial" data-voluntario="María Gómez">Historial</a>
                       <a class="button is-small is-danger">Eliminar</a>
                     </div>
                   </td>
@@ -284,6 +288,7 @@
                   <td>
                     <div class="buttons">
                       <a class="button is-small is-info">Editar</a>
+                      <a class="button is-small is-warning btn-historial" data-voluntario="María Gómez">Historial</a>
                       <a class="button is-small is-danger">Eliminar</a>
                     </div>
                   </td>
@@ -321,26 +326,26 @@
       </label>
 
       <div class="tags mb-4">
-        <span class="tag is-info">
+        <p class="tag is-info">
           Fecha: 2023-10-15
           <button class="delete is-small"></button>
-        </span>
-        <span class="tag is-info">
+        </p>
+        <p class="tag is-info">
           Tipo: Social
           <button class="delete is-small"></button>
-        </span>
-        <span class="tag is-info">
+        </p>
+        <p class="tag is-info">
             Organización: Supermercado La Esperanza
           <button class="delete is-small"></button>
-        </span>
-        <span class="tag is-info">
+        </p>
+        <p class="tag is-info">
           Organización: Pamplona
           <button class="delete is-small"></button>
-        </span>
-        <span class="tag is-info">
+        </p>
+        <p class="tag is-info">
           ODS: ODS 1, ODS 2
           <button class="delete is-small"></button>
-        </span>
+        </p>
       </div>
       <form class="box filtroFormEventos">
         <h4 class="title is-5">Filtrar Actividades</h4>
@@ -379,6 +384,7 @@
                     <option value="Deportivo">Voluntariado Deportivo</option>
                     <option value="Salud">Voluntariado en Salud</option>
                     <option value="Digital">Voluntariado Digital</option>
+                    <option value="Técnico">Voluntariado Técnico</option>
                   </select>
                 </div>
               </div>
@@ -485,13 +491,32 @@
                 <td>Social</td>
                 <td>ODS 1, ODS 2</td>
                 <td>
-                  <span class="tag is-success">Activa</span>
+                  <p class="tag is-success">Activa</p>
                 </td>
                 <td>
-                  <ul>
-                    <li>María Gómez</li>
-                    <li>Carlos López</li>
-                    <li>Ana Ruiz</li>
+                  <div class="is-flex is-justify-content-center mb-3">
+                    <div class="control mr-2">
+                      <button class="button is-small is-success" onclick="incrementCounter(this)">
+                        <span class="icon is-small">
+                          <i class="fas fa-plus"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="control">
+                      <button class="button is-small is-danger" onclick="decrementCounter(this)">
+                        <span class="icon is-small">
+                          <i class="fas fa-minus"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                
+                  <progress class="progress is-small is-primary" value="3" max="10">30%</progress>
+                  <p class="has-text-centered is-size-7 mt-1 mb-2">3/10 plazas</p>
+                  <ul class="has-text-left">
+                    <li>Juan Pérez</li>
+                    <li>Sofía Ramírez</li>
+                    <li>Diego Fernández</li>
                   </ul>
                 </td>
                 <td>
@@ -515,13 +540,24 @@
                 <td>Ambiental</td>
                 <td>ODS 14</td>
                 <td>
-                  <span class="tag is-warning">Pendiente</span>
+                  <p class="tag is-warning">Pendiente</p>
+                  <div class="buttons mt-3">
+                    <button class="button is-small is-success">
+                      <span class="icon">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span>Aprobar</span>
+                    </button>
+                    <button class="button is-small is-warning">
+                      <span class="icon">
+                        <i class="fas fa-times"></i>
+                      </span>
+                      <span>Rechazar</span>
+                    </button>
+                  </div>
                 </td>
                 <td>
-                  <ul>
-                    <li>Juan Pérez</li>
-                    <li>Ana Ruiz</li>
-                  </ul>
+                  <p>Pendiente Aprobacion</p>
                 </td>
                 <td>
                   <div class="buttons">
@@ -544,12 +580,12 @@
                 <td>Educativo</td>
                 <td>ODS 4, ODS 8</td>
                 <td>
-                  <span class="tag is-danger">Inactiva</span>
+                  <p class="tag is-danger">Inactiva</p>
                 </td>
                 <td>
                   <ul>
-                    <li>Carlos López</li>
-                    <li>María Gómez</li>
+                      <li><progress class="progress is-small is-primary" value="0" max="4">0%</progress></li>
+                      <li><p class="has-text-centered is-size-7 mt-1 mb-2">0/5 plazas</p></li>
                   </ul>
                 </td>
                 <td>
@@ -573,12 +609,31 @@
                 <td>Salud</td>
                 <td>ODS 3</td>
                 <td>
-                  <span class="tag is-success">Activa</span>
+                  <p class="tag is-success">Activa</p>
                 </td>
                 <td>
-                  <ul>
-                    <li>Ana Ruiz</li>
+                  <div class="is-flex is-justify-content-center mb-3">
+                    <div class="control mr-2">
+                      <button class="button is-small is-success" onclick="incrementCounter(this)">
+                        <span class="icon is-small">
+                          <i class="fas fa-plus"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="control">
+                      <button class="button is-small is-danger" onclick="decrementCounter(this)">
+                        <span class="icon is-small">
+                          <i class="fas fa-minus"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                
+                  <progress class="progress is-small is-primary" value="2" max="4">50%</progress>
+                  <p class="has-text-centered is-size-7 mt-1 mb-2">2/4 plazas</p>
+                  <ul class="has-text-left">
                     <li>Juan Pérez</li>
+                    <li>Sofía Ramírez</li>
                   </ul>
                 </td>
                 <td>
@@ -594,7 +649,254 @@
       </div>
     </div>
   </div>
-
+  <section class="section" id="organizaciones">
+    <div class="container">
+      <div class="box">
+        <div class="level">
+          <div class="level-left">
+            <h3 class="title is-4">Organizaciones Colaboradoras</h3>
+          </div>
+          <div class="level-right">
+            <button class="button is-primary" id="abrirModalOrg">
+              <span class="icon">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span>Añadir Organización</span>
+            </button>
+          </div>          
+        </div>
+  
+        <!-- Listado de Organizaciones -->
+        <div class="box">
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable is-striped">
+              <thead>
+                <tr>
+                  <th>Organización</th>
+                  <th>Contacto</th>
+                  <th>Ubicación</th>
+                  <th>Tipo de Colaboración</th>
+                  <th>ODS Relacionados</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Ejemplo de organizaciones navarras -->
+                <tr>
+                  <td>
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStScJ63rhVyf8NtHi0g-aWWg2xGSt-hCy3FQ&s" alt="Banco de Alimentos">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="has-text-weight-bold">Banco de Alimentos de Navarra</p>
+                        <p class="is-size-7">contacto@bancoalimentosnavarra.org</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>María García<br>948 123 456</td>
+                  <td>C/ Ronda de las Ventas, 12<br>31012 Pamplona</td>
+                  <td>
+                    <p class="tag is-info">Recogida alimentos</p>
+                    <p class="tag is-success">Voluntariado social</p>
+                  </td>
+                  <td>
+                    <p class="tag ods-1">ODS 1</p>
+                    <p class="tag ods-2">ODS 2</p>
+                  </td>
+                  <td>
+                    <div class="buttons">
+                      <button class="button is-small is-info">Editar</button>
+                      <button class="button is-small is-danger">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Cruz_Roja_Navarra.png" alt="Cruz Roja Navarra">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="has-text-weight-bold">Cruz Roja Navarra</p>
+                        <p class="is-size-7">navarra@cruzroja.es</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Carlos Martínez<br>948 765 432</td>
+                  <td>C/ Leyre, 25<br>31002 Pamplona</td>
+                  <td>
+                    <p class="tag is-warning">Emergencias</p>
+                    <p class="tag is-success">Apoyo social</p>
+                  </td>
+                  <td>
+                    <p class="tag ods-3">ODS 3</p>
+                    <p class="tag ods-10">ODS 10</p>
+                  </td>
+                  <td>
+                    <div class="buttons">
+                      <button class="button is-small is-info">Editar</button>
+                      <button class="button is-small is-danger">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+  
+                <!-- Más organizaciones navarras -->
+                <tr>
+                  <td>
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuygwDZChtfFzby4iziDLpMw0L9rQ5Jrx5NQ&s" alt="Cruz Roja Navarra">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="has-text-weight-bold">Fundacion Fundación Ilundain Haritz Berri </p>
+                        <p class="is-size-7">fundacion@fundacion-ilundain.com</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Ana Sánchez<br>948 333 222</td>
+                  <td>Ctra. Aranguren, s/n<br>31192 Aranguren</td>
+                  <td><p class="tag is-success">Educación</p></td>
+                  <td><p class="tag ods-4">ODS 4</p></td>
+                  <td>
+                    <div class="buttons">
+                      <button class="button is-small is-info">Editar</button>
+                      <button class="button is-small is-danger">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Modal para Añadir Organización -->
+  <div class="modal" id="modal-org">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Nueva Organización</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <form class="box">
+          <h3 class="title is-5">Detalles de la Organización</h3>
+          <div class="field">
+            <label class="label">Nombre de la Empresa</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ej: Empresa S.A." required>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Persona de Contacto</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ej: Juan Pérez" required>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Dirección Postal</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ej: Calle Falsa 123, Pamplona" required>
+            </div>
+          </div>
+          
+          <div class="columns is-vcentered is-gapless">
+            <div class="column">
+              <div class="field">
+                <label class="label">Correo Electrónico</label>
+                <div class="control">
+                  <input class="input" type="email" placeholder="Ej: contacto@empresa.com" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="column">
+              <div class="field">
+                <label class="label">Teléfono</label>
+                <div class="control">
+                  <input class="input" type="tel" placeholder="Ej: 948123456" required>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Tipo de Voluntariado</label>
+            <div class="control">
+              <div class="select is-multiple is-fullwidth">
+                <select multiple required>
+                  <option value="Social">Voluntariado Social</option>
+                  <option value="Ambiental">Voluntariado Ambiental</option>
+                  <option value="Educativo">Voluntariado Educativo</option>
+                  <option value="Cultural">Voluntariado Cultural</option>
+                  <option value="Deportivo">Voluntariado Deportivo</option>
+                  <option value="Salud">Voluntariado en Salud</option>
+                  <option value="Digital">Voluntariado Digital</option>
+                  <option value="Técnico">Voluntariado Técnico</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">ODS Relacionados</label>
+            <div class="control">
+              <div class="select is-multiple is-fullwidth">
+                <select required multiple>
+                  <option value="ODS 1">ODS 1: Fin de la pobreza</option>
+                  <option value="ODS 2">ODS 2: Hambre cero</option>
+                  <option value="ODS 3">ODS 3: Salud y bienestar</option>
+                  <option value="ODS 4">ODS 4: Educación de calidad</option>
+                  <option value="ODS 5">ODS 5: Igualdad de género</option>
+                  <option value="ODS 6">ODS 6: Agua limpia y saneamiento</option>
+                  <option value="ODS 7">ODS 7: Energía asequible y no contaminante</option>
+                  <option value="ODS 8">ODS 8: Trabajo decente y crecimiento económico</option>
+                  <option value="ODS 9">ODS 9: Industria, innovación e infraestructura</option>
+                  <option value="ODS 10">ODS 10: Reducción de las desigualdades</option>
+                  <option value="ODS 11">ODS 11: Ciudades y comunidades sostenibles</option>
+                  <option value="ODS 12">ODS 12: Producción y consumo responsables</option>
+                  <option value="ODS 13">ODS 13: Acción por el clima</option>
+                  <option value="ODS 14">ODS 14: Vida submarina</option>
+                  <option value="ODS 15">ODS 15: Vida de ecosistemas terrestres</option>
+                  <option value="ODS 16">ODS 16: Paz, justicia e instituciones sólidas</option>
+                  <option value="ODS 17">ODS 17: Alianzas para lograr los objetivos</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Describe la organización y tipo de colaboración" required></textarea>
+            </div>
+          </div>
+  
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-primary" type="submit">Guardar</button>
+            </div>
+            <div class="control">
+              <button class="button is-light">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+  
   <!-- Modal para añadir actividad -->
 <div class="modal" id="modalActividad">
   <div class="modal-background"></div>
@@ -614,44 +916,36 @@
             <div class="field">
               <label class="label">Foto URL</label>
               <div class="control has-icons-left">
-                <input class="input" type="text" name="foto" placeholder="URL de la foto" id="fotoActividad">
-                <span class="icon is-small is-left">
+                <input class="input" type="url" name="foto" placeholder="URL de la foto" id="fotoActividad">
+                <p class="icon is-small is-left">
                   <i class="fas fa-image"></i>
-                </span>
+                </p>
               </div>
             </div>
           </div>
-
-          <!-- Fechas Múltiples -->
           <div class="column is-6">
-            <div class="field">
-              <label class="label">Fechas</label>
-              <div class="field has-addons">
-                <div class="control is-expanded">
-                  <input class="input" type="date" id="fechaActividad">
-                </div>
-                <div class="control">
-                  <button type="button" class="button is-primary" id="agregarFecha">
-                    <span class="icon">
-                      <i class="fas fa-plus"></i>
-                    </span>
-                  </button>
-                </div>
-              </div>
-              <div id="listaFechas" class="tags mt-2"></div>
-              <input type="hidden" id="fechasSeleccionadas">
+          <div class="field">
+            <label class="label">Fechas y horarios</label>
+            <div class="control">
+              <textarea id="fechasHorarios" class="textarea" 
+                        placeholder="Formato libre. Ejemplos:
+  - 25 y 30 Diciembre 2025 (10:00-14:00)
+  - Todos los martes de enero (16:00-18:00)
+  - 1, 8 y 15 Febrero (todo el día)"
+                        rows="3"
+                        required></textarea>
             </div>
           </div>
-
+          </div>
           <!-- Empresa -->
           <div class="column is-6">
             <div class="field">
               <label class="label">Organización</label>
               <div class="control has-icons-left">
                 <input class="input" type="text" name="empresa" placeholder="Nombre de la empresa" id="empresaActividad">
-                <span class="icon is-small is-left">
+                <p class="icon is-small is-left">
                   <i class="fas fa-building"></i>
-                </span>
+                </p>
               </div>
             </div>
           </div>
@@ -662,9 +956,9 @@
               <label class="label">Lugar</label>
               <div class="control has-icons-left">
                 <input class="input" type="text" name="lugar" placeholder="Lugar del evento" id="lugarActividad">
-                <span class="icon is-small is-left">
+                <p class="icon is-small is-left">
                   <i class="fas fa-map-marker-alt"></i>
-                </span>
+                </p>
               </div>
             </div>
           </div>
@@ -694,6 +988,7 @@
                     <option value="Deportivo">Voluntariado Deportivo</option>
                     <option value="Salud">Voluntariado en Salud</option>
                     <option value="Digital">Voluntariado Digital</option>
+                    <option value="Técnico">Voluntariado Técnico</option>
                   </select>
                 </div>
               </div>
@@ -731,13 +1026,15 @@
       </form>
     </section>
     <footer class="modal-card-foot">
+      <div class="buttons">
       <button class="button is-success" id="guardarActividad">
         <span class="icon">
           <i class="fas fa-save"></i>
         </span>
-        <span>Guardar Evento</span>
+        <span>Guardar Actividad</span>
       </button>
       <button class="button" id="cancelarActividad">Cancelar</button>
+      </div>
     </footer>
   </div>
 </div>
@@ -775,59 +1072,6 @@
     </footer>
   </div>
 </div>
-</body>
-<script>
-  // Abrir modal de historial
-  document.querySelectorAll('.btn-historial').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const nombreVoluntario = this.getAttribute('data-voluntario');
-      document.getElementById('nombreVoluntarioHistorial').textContent = `Historial de ${nombreVoluntario}`;
-      
-      // Aquí podrías hacer una llamada AJAX para obtener los datos reales del historial
-      // Por ahora usaremos datos de ejemplo
-      const datosHistorial = {
-        "Juan Pérez": [
-          { actividad: "Recolección de alimentos", fecha: "2023-10-15", organizacion: "Banco de Alimentos", horas: 4, estado: "Completado" },
-          { actividad: "Taller educativo", fecha: "2023-09-20", organizacion: "Escuela Primaria", horas: 3, estado: "Completado" },
-          { actividad: "Limpieza de parque", fecha: "2023-11-05", organizacion: "Ayuntamiento", horas: 5, estado: "Completado" }
-        ],
-        "María Gómez": [
-          { actividad: "Apoyo escolar", fecha: "2023-10-10", organizacion: "Centro Comunitario", horas: 6, estado: "Completado" },
-          { actividad: "Evento benéfico", fecha: "2023-11-15", organizacion: "Cruz Roja", horas: 8, estado: "Completado" }
-        ],
-        // Agrega más datos según sea necesario
-      };
-
-      const tabla = document.getElementById('tablaHistorial');
-      tabla.innerHTML = ''; // Limpiar tabla
-      
-      if (datosHistorial[nombreVoluntario]) {
-        datosHistorial[nombreVoluntario].forEach(item => {
-          const fila = document.createElement('tr');
-          fila.innerHTML = `
-            <td>${item.actividad}</td>
-            <td>${item.fecha}</td>
-            <td>${item.organizacion}</td>
-            <td>${item.horas}</td>
-            <td><span class="tag is-success">${item.estado}</span></td>
-          `;
-          tabla.appendChild(fila);
-        });
-      } else {
-        tabla.innerHTML = '<tr><td colspan="5" class="has-text-centered">No hay actividades registradas</td></tr>';
-      }
-
-      document.getElementById('modalHistorial').classList.add('is-active');
-    });
-  });
-  // Cerrar modal de historial
-  document.getElementById('cerrarModalHistorial').addEventListener('click', cerrarModalHistorial);
-  document.getElementById('cerrarModalHistorialBtn').addEventListener('click', cerrarModalHistorial);
-  
-  function cerrarModalHistorial() {
-    document.getElementById('modalHistorial').classList.remove('is-active');
-  }
-</script>
 <script src="./Javascripts/coordinador.js"></script>
-<script src="./Javascripts/formAnadirEvento.js"></script>
+</body>
 </html>

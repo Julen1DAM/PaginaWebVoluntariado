@@ -97,7 +97,6 @@
                 Desarrolla nuevas habilidades, haz amigos y contribuye al bien común.
               </h2>
               <a href="form.html" class="button is-primary is-medium is-rounded is-size-5-mobile mt-3" target="_blank">Apúntate ahora y sé parte del cambio.</a>
-              </a>
             </div>
           </div>
         </div>
@@ -123,8 +122,8 @@
       </div>
     </div>
   </section>
-  <section class="section">
-    <div id="queHacemos" class="container">
+  <section id="queHacemos" class="section">
+    <div class="container">
       <h1 class="title has-text-centered fade-in">¿Qué hacemos?</h1>
       <div class="content has-text-centered fade-in">
         <p class="is-size-5"></p>
@@ -224,7 +223,7 @@
     </div>
   </section>
 
-  <section class="level fade-in">
+  <div class="level fade-in">
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Nº de voluntariados realizados</p>
@@ -243,7 +242,7 @@
         <p class="title">4</p>
       </div>
     </div>
-  </section>
+  </div>
   <section class="section">
     <div class="container has-text-centered box has-background-light fade-in">
       <h2 class="title">¿Eres una organización dispuesta a colaborar con Cuatrovientos?</h2>
@@ -252,7 +251,7 @@
     </div>
   </section>
 
-  <input type="checkbox" id="modal-org-toggle">
+  <input class="is-invisible" type="checkbox" id="modal-org-toggle">
   <div class="modal" id="modal-org">
     <div class="modal-background"></div>
     <div class="modal-card ">
@@ -339,21 +338,8 @@
       </div>
     </div>
   </footer>
-</body>
-<script src="./Javascripts/aparicion.js" defer></script>
+  <script src="./Javascripts/aparicion.js" defer></script>
 <script src="./Javascripts/registrarse.js" defer></script>
 <script src="./Javascripts/scriptCarrusel.js" defer></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const modalToggle = document.getElementById('modal-org-toggle');
-    const modal = document.getElementById('modal-org');
-
-    modalToggle.addEventListener('change', () => {
-      if (modalToggle.checked) {
-        modal.classList.add('is-active');
-      } else {
-        modal.classList.remove('is-active');
-      }
-    });
-  });
-</script>
+</body>
+</html>
