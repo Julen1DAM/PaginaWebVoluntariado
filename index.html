@@ -49,9 +49,9 @@
         <label for="modal-toggle" class="delete" aria-label="close"></label>
       </header>
       <div class="modal-card-body" >
-        <div class="columns">
-          <form>
-            <div class="field">
+        <div class="columns is-centered">
+          <form class="column is-half">
+            <div class="field is-centered">
               <label class="label">Nombre De Usuario</label>
               <div class="control has-icons-left">
                 <input class="input" type="text" id="username" placeholder="Ej: JuanGarcía21" required>
@@ -97,7 +97,6 @@
                 Desarrolla nuevas habilidades, haz amigos y contribuye al bien común.
               </h2>
               <a href="form.html" class="button is-primary is-medium is-rounded is-size-5-mobile mt-3" target="_blank">Apúntate ahora y sé parte del cambio.</a>
-              </a>
             </div>
           </div>
         </div>
@@ -123,8 +122,8 @@
       </div>
     </div>
   </section>
-  <section class="section">
-    <div id="queHacemos" class="container">
+  <section id="queHacemos" class="section">
+    <div class="container">
       <h1 class="title has-text-centered fade-in">¿Qué hacemos?</h1>
       <div class="content has-text-centered fade-in">
         <p class="is-size-5"></p>
@@ -224,7 +223,7 @@
     </div>
   </section>
 
-  <nav class="level fade-in">
+  <div class="level fade-in">
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Nº de voluntariados realizados</p>
@@ -243,8 +242,74 @@
         <p class="title">4</p>
       </div>
     </div>
-  </nav>
+  </div>
+  <section class="section">
+    <div class="container has-text-centered box has-background-light fade-in">
+      <h2 class="title">¿Eres una organización dispuesta a colaborar con Cuatrovientos?</h2>
+      <p class="subtitle">¡Apúntate!</p>
+      <label for="modal-org-toggle" class="button is-primary is-medium is-rounded">Colabora con nosotros</label>
+    </div>
+  </section>
 
+  <input class="is-invisible" type="checkbox" id="modal-org-toggle">
+  <div class="modal" id="modal-org">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Formulario de Colaboración</p>
+        <label for="modal-org-toggle" class="delete" aria-label="close"></label>
+      </header>
+      <div class="modal-card-body">
+        <form>
+          <div class="field">
+            <label class="label">Nombre de la Empresa</label>
+            <div class="control">
+              <input class="input is-expanded" type="text" placeholder="Ej: Empresa S.A." required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Persona de Contacto</label>
+            <div class="control">
+              <input Id="NomPerOrg" class="input is-expanded" type="text" placeholder="Ej: Juan Pérez" required>
+              <p class="help is-danger" id="errorNomPerOrg">Solo se permiten letras y espacios</p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Dirección Postal</label>
+            <div class="control">
+              <input Id="CodPosOrg" class="input is-expanded" type="text" placeholder="Ej: Calle Falsa 123, Pamplona" required>
+              <p class="help is-danger" id="errorCodPosOrg">Formato incorrecto</p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Correo Electrónico</label>
+            <div class="control">
+              <input Id="CorreoOrg" class="input is-expanded" type="email" placeholder="Ej: contacto@empresa.com" required>
+              <p class="help is-danger" id="errorCorreoOrg">Formato incorrecto</p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Teléfono</label>
+            <div class="control">
+              <input Id="TelOrg" class="input is-expanded" type="tel" placeholder="Ej: 948123456" required>
+              <p class="help is-danger" id="errorTelOrg">Formato incorrecto</p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+              <textarea class="textarea is-expanded" placeholder="Describe brevemente cómo deseas colaborar" required></textarea>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button id="botonOrg" class="button is-link" type="submit">Enviar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <footer class="footer has-background-light mt-6">
     <div class="container">
       <div class="columns">
@@ -274,7 +339,10 @@
       </div>
     </div>
   </footer>
-</body>
+  <script src="./Javascripts/validacionOrg.js" defer></script>
 <script src="./Javascripts/aparicion.js" defer></script>
 <script src="./Javascripts/registrarse.js" defer></script>
 <script src="./Javascripts/scriptCarrusel.js" defer></script>
+<script src="./Javascripts/modal.js"></script>
+</body>
+</html>

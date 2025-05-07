@@ -11,9 +11,6 @@
   --bulma-success-s: 29%;
   --bulma-success-l: 60%;
 }
-body {
-  font-family: 'Poppins', sans-serif;
-}
 .button.is-medium.is-rounded {
   white-space: normal;
   word-break: break-word; 
@@ -96,18 +93,10 @@ iframe{
   height:300px ;
   border:0;
 }
-/* Centrar contenido del modal */
-.modal-card-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #modal-toggle{
   display: none;
 }
-.modal-card{
-  width:30%;
-}
+
 .social-links {
   margin-top: 10px;
 }
@@ -136,10 +125,36 @@ iframe{
   width:70%;
   margin:auto;
 }
-#mapa{
+#mapa {
   border-radius: 10%;
-  max-width: 400px;
-  max-height: 250px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media (min-width: 769px) {
+  #mapa {
+    max-width: 400px;
+    height: 250px;
+  }
+}
+
+/* Tabletas */
+@media (max-width: 768px) {
+  #mapa {
+    width: 90%;
+    height: calc(90vw * 0.625); 
+    max-width: 400px;
+    max-height: 250px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  #mapa {
+    width: 95%;
+    height: calc(95vw * 0.625);
+    max-width: 350px;
+    max-height: 218px;
+  }
 }
 #fondotxtprincipal{
   opacity: 95%;
@@ -190,4 +205,64 @@ iframe{
 
 .fade-in.visible {
   opacity: 1;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.125rem;
+  margin: 1rem 0;
+  overflow-x: auto; /* Para móviles */
+}
+
+.calendar-day {
+  min-height: 6rem;
+  border: 1px solid #f5f5f5;
+  background: white;
+  padding: 0.5rem;
+}
+
+.calendar-event {
+  background: hsl(171, 100%, 41%);
+  color: white;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .calendar {
+    grid-template-columns: repeat(7, minmax(100px, 1fr));
+  }
+  
+  .calendar-day {
+    min-height: 4rem;
+    padding: 0.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .calendar-event {
+    font-size: 0.7rem;
+    margin: 0.1rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .calendar {
+    grid-template-columns: repeat(7, minmax(80px, 1fr));
+  }
+  
+  .calendar-day {
+    min-height: 3.5rem;
+  }
+}
+.ods-tag {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 0.5rem;
 }

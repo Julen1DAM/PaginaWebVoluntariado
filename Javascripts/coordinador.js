@@ -8,38 +8,46 @@ document.addEventListener('DOMContentLoaded', () => {
       $target.classList.toggle('is-active');
     });
   });
-});
-document.addEventListener('DOMContentLoaded', () => {
+
+// Editar/Eliminar filas
   const filas = document.querySelectorAll("table tbody tr");
   filas.forEach(row => {
     const editarBtn = row.querySelector(".button.is-info");
     const eliminarBtn = row.querySelector(".button.is-danger");
-    eliminarBtn.addEventListener("click", () => {
-      row.remove();
-    });
-    editarBtn.addEventListener("click", () => {
-      const celdas = row.querySelectorAll("td");
-      const esEdicion = editarBtn.textContent === "Guardar"; 
-      for (let i = 1; i < celdas.length - 1; i++) {
-        if (!esEdicion) {
-          const texto = celdas[i].textContent; 
-          celdas[i].innerHTML = `<input type="text" value="${texto}">`;
-        } else {
-          const input = celdas[i].querySelector("input");
-          celdas[i].textContent = input.value; 
+    
+    if(eliminarBtn) {
+      eliminarBtn.addEventListener("click", () => {
+        row.remove();
+      });
+    }
+    
+    if(editarBtn) {
+      editarBtn.addEventListener("click", () => {
+        const celdas = row.querySelectorAll("td");
+        const esEdicion = editarBtn.textContent === "Guardar"; 
+        
+        for (let i = 1; i < celdas.length - 1; i++) {
+          if (!esEdicion) {
+            const texto = celdas[i].textContent; 
+            celdas[i].innerHTML = `<input type="text" value="${texto}">`;
+          } else {
+            const input = celdas[i].querySelector("input");
+            celdas[i].textContent = input.value; 
+          }
         }
-      }
-      editarBtn.textContent = esEdicion ? "Editar" : "Guardar";
-    });
+        editarBtn.textContent = esEdicion ? "Editar" : "Guardar";
+      });
+    }
   });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
+// Filtrado de voluntarios
   const filterForm = document.querySelector('.filtroForm');
+  if (!filterForm) return;
+
   const filterButton = filterForm.querySelector('button[type="button"]');
   const tagsContainer = document.querySelector('#voluntarios .tags');
   const volunteerTable = document.querySelector('#voluntarios table tbody');
+  
+  if (!volunteerTable) return;
   const originalVolunteers = Array.from(volunteerTable.querySelectorAll('tr'));
 
   const volunteersData = originalVolunteers.map(row => {
@@ -57,78 +65,67 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   });
 
-  // Función para aplicar los filtros
-  function applyFilters() {
-    // Obtener valores del formulario
+  function aplicarFiltros() {
     const nombreFilter = filterForm.querySelector('input[name="nombre"]').value.toLowerCase();
     const disponibilidadFilter = Array.from(filterForm.querySelector('select[name="disponibilidad[]"]').selectedOptions).map(opt => opt.value);
     const horasMinFilter = parseInt(filterForm.querySelector('input[name="horas_min"]').value) || 0;
     const voluntariadoFilter = filterForm.querySelector('select[name="voluntariado"]').value;
     const cursoFilter = filterForm.querySelector('select[name="curso"]').value;
     
-    // Limpiar tags anteriores
-    tagsContainer.innerHTML = '';
+    if(tagsContainer) tagsContainer.innerHTML = '';
     
-    // Crear tags para los filtros aplicados
     if (nombreFilter) {
-      addFilterTag('Nombre', nombreFilter);
+      anadirTag('Nombre', nombreFilter);
     }
     if (disponibilidadFilter.length > 0) {
-      addFilterTag('Disponibilidad', disponibilidadFilter.join(', '));
+      anadirTag('Disponibilidad', disponibilidadFilter.join(', '));
     }
     if (horasMinFilter > 0) {
-      addFilterTag('Horas mínimas', horasMinFilter);
+      anadirTag('Horas mínimas', horasMinFilter);
     }
     if (voluntariadoFilter) {
-      addFilterTag('Voluntariado', voluntariadoFilter);
+      anadirTag('Voluntariado', voluntariadoFilter);
     }
     if (cursoFilter) {
-      addFilterTag('Curso', cursoFilter);
+      anadirTag('Curso', cursoFilter);
     }
     
-    // Aplicar filtros a los datos
     volunteersData.forEach(volunteer => {
       let matches = true;
       
-      // Filtro por nombre (nombre o apellido)
       if (nombreFilter && !volunteer.nombre.toLowerCase().includes(nombreFilter)) {
         matches = false;
       }
       
-      // Filtro por disponibilidad
       if (disponibilidadFilter.length > 0 && 
           !disponibilidadFilter.some(day => volunteer.disponibilidad.includes(day))) {
         matches = false;
       }
       
-      // Filtro por horas mínimas
       if (horasMinFilter > 0 && volunteer.horas < horasMinFilter) {
         matches = false;
       }
       
-      // Filtro por tipo de voluntariado
       if (voluntariadoFilter && !volunteer.voluntariados.includes(voluntariadoFilter)) {
         matches = false;
       }
       
-      // Filtro por curso
       if (cursoFilter && volunteer.curso !== cursoFilter) {
         matches = false;
       }
       
-      // Mostrar u ocultar según coincida con los filtros
       volunteer.element.style.display = matches ? '' : 'none';
       volunteer.visible = matches;
     });
   }
   
-  // Función para añadir tags de filtro
-  function addFilterTag(label, value) {
+  function anadirTag(label, value) {
+    if(!tagsContainer) return;
+    
     const tag = document.createElement('span');
     tag.className = 'tag is-info';
     tag.innerHTML = `${label}: ${value} <button class="delete is-small"></button>`;
     
-    // Eliminar filtro al hacer clic en la X
     const deleteButton = tag.querySelector('.delete');
     deleteButton.addEventListener('click', function() {
       if (label === 'Nombre') {
@@ -145,167 +142,111 @@ document.addEventListener('DOMContentLoaded', function() {
         filterForm.querySelector('select[name="curso"]').value = '';
       }
       
-      applyFilters();
+      aplicarFiltros();
     });
     
     tagsContainer.appendChild(tag);
   }
   
-  // Evento para el botón de filtrar
-  filterButton.addEventListener('click', applyFilters);
+  if(filterButton) {
+    filterButton.addEventListener('click', aplicarFiltros);
+  }
   
-  // Evento para borrar todos los filtros
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('clear-filters')) {
       filterForm.reset();
-      applyFilters();
+      aplicarFiltros();
     }
   });
-});
-document.addEventListener('DOMContentLoaded', () => {
-  // Elementos del modal
+// Modal Actividades
   const modal = document.getElementById('modalActividad');
+  if (!modal) return;
+
   const btnAbrir = document.getElementById('btnAñadirActividad');
   const btnCerrar = document.getElementById('cerrarModal');
   const btnCancelar = document.getElementById('cancelarActividad');
   const btnGuardar = document.getElementById('guardarActividad');
-  const btnAgregarFecha = document.getElementById('agregarFecha');
   
-  // Elementos del formulario
-  const inputFecha = document.getElementById('fechaActividad');
-  const listaFechas = document.getElementById('listaFechas');
-  const fechasSeleccionadas = document.getElementById('fechasSeleccionadas');
   const fotoInput = document.getElementById('fotoActividad');
   const descripcionInput = document.getElementById('descripcionActividad');
+  const fechasHorariosInput = document.getElementById('fechasHorarios');
   const empresaInput = document.getElementById('empresaActividad');
   const lugarInput = document.getElementById('lugarActividad');
   const tipoVoluntariadoSelect = document.getElementById('tipoVoluntariado');
   const odsSelect = document.getElementById('odsActividad');
   
-  // Tabla de eventos
   const tablaEventos = document.getElementById('lista-eventos');
 
-  // Array para almacenar las fechas seleccionadas
-  let fechas = [];
-
-  // Abrir modal
-  btnAbrir.addEventListener('click', () => {
-    // Limpiar el formulario al abrir
-    resetForm();
-    modal.classList.add('is-active');
-  });
-
-  // Cerrar modal
-  btnCerrar.addEventListener('click', () => {
-    modal.classList.remove('is-active');
-  });
-
-  btnCancelar.addEventListener('click', () => {
-    modal.classList.remove('is-active');
-  });
-
-  // Agregar fecha a la lista
-  btnAgregarFecha.addEventListener('click', () => {
-    const fecha = inputFecha.value;
-    if (fecha && !fechas.includes(fecha)) {
-      fechas.push(fecha);
-      actualizarListaFechas();
-      inputFecha.value = ''; // Limpiar el input después de agregar
-    }
-  });
-
-  // Función para actualizar la lista visual de fechas
-  function actualizarListaFechas() {
-    listaFechas.innerHTML = '';
-    fechas.forEach((fecha, index) => {
-      const tag = document.createElement('span');
-      tag.className = 'tag is-info';
-      tag.innerHTML = `
-        ${fecha}
-        <button class="delete is-small" data-index="${index}"></button>
-      `;
-      listaFechas.appendChild(tag);
-    });
-    
-    // Actualizar el input hidden con las fechas como string separado por comas
-    fechasSeleccionadas.value = fechas.join(',');
-    
-    // Agregar event listeners a los botones de eliminar
-    document.querySelectorAll('#listaFechas .delete').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const index = e.target.getAttribute('data-index');
-        fechas.splice(index, 1);
-        actualizarListaFechas();
-      });
+  if(btnAbrir) {
+    btnAbrir.addEventListener('click', () => {
+      resetForm();
+      modal.classList.add('is-active');
     });
   }
 
-  // Guardar actividad
-  btnGuardar.addEventListener('click', () => {
-    // Validar campos obligatorios
-    if (!validarFormulario()) {
-      return;
-    }
-    
-    // Obtener los ODS seleccionados
-    const odsSeleccionados = Array.from(odsSelect.selectedOptions).map(option => option.value);
-    
-    // Crear la nueva actividad
-    const nuevaActividad = {
-      foto: fotoInput.value || './Imagenes/voluntariado.png',
-      descripcion: descripcionInput.value,
-      fechas: fechas.join(', '),
-      empresa: empresaInput.value,
-      lugar: lugarInput.value,
-      tipo: tipoVoluntariadoSelect.value,
-      ods: odsSeleccionados.join(', '),
-      voluntarios: [],// Inicialmente sin voluntarios
-      estado: 'Pendiente' // Estado inicial de la actividad
-    };
-    
-    // Añadir la actividad a la tabla
-    agregarActividadATabla(nuevaActividad);
-    
-    // Cerrar el modal y limpiar el formulario
-    modal.classList.remove('is-active');
-    resetForm();
-  });
+  const cerrarModal = () => modal.classList.remove('is-active');
+  if(btnCerrar) btnCerrar.addEventListener('click', cerrarModal);
+  if(btnCancelar) btnCancelar.addEventListener('click', cerrarModal);
 
-  // Función para validar el formulario
+  if(btnGuardar) {
+    btnGuardar.addEventListener('click', () => {
+      if (!validarFormulario()) return;
+      
+      const nuevaActividad = {
+        foto: fotoInput.value || './Imagenes/voluntariado.png',
+        descripcion: descripcionInput.value,
+        fechas: fechasHorariosInput.value,
+        empresa: empresaInput.value,
+        lugar: lugarInput.value,
+        tipo: tipoVoluntariadoSelect.value,
+        ods: Array.from(odsSelect.selectedOptions).map(option => option.value).join(', '),
+        voluntarios: [],
+        estado: 'Activa'
+      };
+      
+      if(tablaEventos) agregarActividadATabla(nuevaActividad);
+      cerrarModal();
+      resetForm();
+    });
+  }
+
   function validarFormulario() {
-    if (fechas.length === 0) {
-      alert('Por favor, añade al menos una fecha para la actividad');
+    // 2. Validación de campos obligatorios
+    const camposRequeridos = [
+      { elemento: fotoInput, mensaje: "URL de la foto es requerida" },
+      { elemento: fechasHorariosInput, mensaje: "Fechas y horarios son requeridos" },
+      { elemento: descripcionInput, mensaje: "Descripción es requerida" },
+      { elemento: empresaInput, mensaje: "Empresa/Organización es requerida" },
+      { elemento: lugarInput, mensaje: "Lugar es requerido" }
+    ];
+  
+    for (const campo of camposRequeridos) {
+      if (campo.elemento.value.trim() === "") {
+        alert(campo.mensaje);
+        campo.elemento.focus();
+        return false;
+      }
+    }
+  
+    // 3. Validación tipo de voluntariado
+    if (tipoVoluntariadoSelect.value === "") {
+      alert("Selecciona un tipo de voluntariado");
+      tipoVoluntariadoSelect.focus();
       return false;
     }
-    
-    if (!descripcionInput.value) {
-      alert('Por favor, ingresa una descripción para la actividad');
+  
+    // 4. Validación ODS (mínimo 1 seleccionado)
+    if (odsSelect.selectedOptions.length === 0) {
+      alert("Debes seleccionar al menos un ODS");
+      odsSelect.focus();
       return false;
     }
-    
-    if (!empresaInput.value) {
-      alert('Por favor, ingresa el nombre de la empresa/organización');
-      return false;
-    }
-    
-    if (!lugarInput.value) {
-      alert('Por favor, ingresa el lugar donde se realizará la actividad');
-      return false;
-    }
-    
-    if (!tipoVoluntariadoSelect.value) {
-      alert('Por favor, selecciona un tipo de voluntariado');
-      return false;
-    }
-    
-    return true;
+  
+    return true; // Si pasa todas las validaciones
   }
-
-  // Función para agregar una actividad a la tabla
   function agregarActividadATabla(actividad) {
     const row = document.createElement('tr');
     
-    // Formatear la lista de voluntarios
     let listaVoluntarios = '<ul>';
     if (actividad.voluntarios && actividad.voluntarios.length > 0) {
       actividad.voluntarios.forEach(voluntario => {
@@ -323,14 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </figure>
       </td>
       <td>${actividad.descripcion}</td>
-      <td>${actividad.fechas}</td>
+      <td style="white-space: pre-wrap">${actividad.fechas}</td>
       <td>${actividad.empresa}</td>
       <td>${actividad.lugar}</td>
       <td>${actividad.tipo}</td>
       <td>${actividad.ods}</td>
-       <td><td>
-        <span class="tag is-warning">${actividad.estado}</span>
-      </td></td>
+      <td><span class="tag is-succes">${actividad.estado}</span></td>
       <td>${listaVoluntarios}</td>
       <td>
         <div class="buttons">
@@ -340,36 +279,28 @@ document.addEventListener('DOMContentLoaded', () => {
       </td>
     `;
     
-    // Agregar la fila a la tabla (al inicio)
-    tablaEventos.insertBefore(row, tablaEventos.firstChild);
+    if(tablaEventos) tablaEventos.insertBefore(row, tablaEventos.firstChild);
   }
 
-  // Función para limpiar el formulario
   function resetForm() {
-    fotoInput.value = '';
-    descripcionInput.value = '';
-    empresaInput.value = '';
-    lugarInput.value = '';
-    tipoVoluntariadoSelect.value = '';
-    odsSelect.selectedIndex = -1;
-    inputFecha.value = '';
-    fechas = [];
-    listaFechas.innerHTML = '';
-    fechasSeleccionadas.value = '';
+    if(fotoInput) fotoInput.value = '';
+    if(descripcionInput) descripcionInput.value = '';
+    if(empresaInput) empresaInput.value = '';
+    if(lugarInput) lugarInput.value = '';
+    if(tipoVoluntariadoSelect) tipoVoluntariadoSelect.value = '';
+    if(odsSelect) odsSelect.selectedIndex = -1;
+    if(fechasHorariosInput) fechasHorariosInput.value = '';
   }
-  // Cerrar modal haciendo clic en el fondo
-  modal.querySelector('.modal-background').addEventListener('click', () => {
-    modal.classList.remove('is-active');
-  });
-});
-  // Abrir modal de historial
+
+  modal.querySelector('.modal-background').addEventListener('click', cerrarModal);
+
+// Historial Voluntarios
   document.querySelectorAll('.btn-historial').forEach(btn => {
     btn.addEventListener('click', function() {
       const nombreVoluntario = this.getAttribute('data-voluntario');
-      document.getElementById('nombreVoluntarioHistorial').textContent = `Historial de ${nombreVoluntario}`;
+      const nombreVoluntarioElement = document.getElementById('nombreVoluntarioHistorial');
+      if(nombreVoluntarioElement) nombreVoluntarioElement.textContent = `Historial de ${nombreVoluntario}`;
       
-      // Aquí podrías hacer una llamada AJAX para obtener los datos reales del historial
-      // Por ahora usaremos datos de ejemplo
       const datosHistorial = {
         "Juan Pérez": [
           { actividad: "Recolección de alimentos", fecha: "2023-10-15", organizacion: "Banco de Alimentos", horas: 4, estado: "Completado" },
@@ -379,12 +310,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "María Gómez": [
           { actividad: "Apoyo escolar", fecha: "2023-10-10", organizacion: "Centro Comunitario", horas: 6, estado: "Completado" },
           { actividad: "Evento benéfico", fecha: "2023-11-15", organizacion: "Cruz Roja", horas: 8, estado: "Completado" }
-        ],
-        // Agrega más datos según sea necesario
+        ]
       };
 
       const tabla = document.getElementById('tablaHistorial');
-      tabla.innerHTML = ''; // Limpiar tabla
+      if(tabla) tabla.innerHTML = '';
       
       if (datosHistorial[nombreVoluntario]) {
         datosHistorial[nombreVoluntario].forEach(item => {
@@ -396,20 +326,48 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${item.horas}</td>
             <td><span class="tag is-success">${item.estado}</span></td>
           `;
-          tabla.appendChild(fila);
+          if(tabla) tabla.appendChild(fila);
         });
-      } else {
+      } else if(tabla) {
         tabla.innerHTML = '<tr><td colspan="5" class="has-text-centered">No hay actividades registradas</td></tr>';
       }
 
-      document.getElementById('modalHistorial').classList.add('is-active');
+      const modalHistorial = document.getElementById('modalHistorial');
+      if(modalHistorial) modalHistorial.classList.add('is-active');
     });
   });
 
-  // Cerrar modal de historial
-  document.getElementById('cerrarModalHistorial').addEventListener('click', cerrarModalHistorial);
-  document.getElementById('cerrarModalHistorialBtn').addEventListener('click', cerrarModalHistorial);
-  
-  function cerrarModalHistorial() {
-    document.getElementById('modalHistorial').classList.remove('is-active');
+  const cerrarModalHistorial = () => {
+    const modalHistorial = document.getElementById('modalHistorial');
+    if(modalHistorial) modalHistorial.classList.remove('is-active');
   }
+  
+  const cerrarBtn1 = document.getElementById('cerrarModalHistorial');
+  const cerrarBtn2 = document.getElementById('cerrarModalHistorialBtn');
+  if(cerrarBtn1) cerrarBtn1.addEventListener('click', cerrarModalHistorial);
+  if(cerrarBtn2) cerrarBtn2.addEventListener('click', cerrarModalHistorial);
+// Modal Organización
+  const modalOrg = document.getElementById('modal-org');
+  if (!modalOrg) return;
+
+  const abrirBtn = document.getElementById('abrirModalOrg');
+  if(abrirBtn) {
+    abrirBtn.addEventListener('click', () => {
+      modalOrg.classList.add('is-active');
+    });
+  }
+
+  modalOrg.querySelectorAll('.delete, .button.is-light').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalOrg.classList.remove('is-active');
+    });
+  });
+
+  const formOrg = modalOrg.querySelector('form');
+  if(formOrg) {
+    formOrg.addEventListener('submit', (e) => {
+      e.preventDefault();
+      modalOrg.classList.remove('is-active');
+    });
+  }
+});
